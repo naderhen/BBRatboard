@@ -1,0 +1,28 @@
+<p>
+  <b>Amount:</b>
+  <%=h @sale.amount %>
+</p>
+
+<p>
+  <b>Ratgrade:</b>
+  <%=h @sale.ratgrade_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @sale.user_id %>
+</p>
+
+<p>
+  <b>Customer:</b>
+  <%=h @sale.customer_id %>
+</p>
+
+<p>
+  <b>Allocated:</b>
+  <%=h @sale.allocated %>
+</p>
+
+
+<%= link_to 'Edit', edit_ratgrade_sale_path(@sale.ratgrade, @sale) %> |
+<%= link_to 'Back', sales_path %>

@@ -1,0 +1,26 @@
+<div id="board_form">
+<%= form_for @board do |f| %>  
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :board_date %><br />
+    <%= f.text_field :board_date, :class=>"datepicker" %>
+  </p>
+
+<fieldset>
+<legend>Warehouses</legend>
+</fieldset>
+
+
+	<%= f.fields_for :warehouses do |builder| %>  
+	    <%= render 'warehouse_fields', :f => builder %>  
+	<% end %>
+	
+	<div id="add_warehouse">
+	<%= link_to_add_fields "Add Warehouse", f, :warehouses %>  
+	</div>
+	
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+</div>

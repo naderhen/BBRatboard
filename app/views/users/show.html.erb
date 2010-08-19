@@ -1,0 +1,14 @@
+<%= @user.login %>
+
+<% for role in @user.roles %>
+	<%= role.name %>
+	
+<% end %>
+
+
+
+<% for report in @user.reports %>
+
+	<%= report.report_date%><br />
+
+<% end %>

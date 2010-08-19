@@ -1,0 +1,26 @@
+<h1>Listing ratgrades</h1>
+
+<table>
+  <tr>
+    <th>Warehouse</th>
+    <th>Name</th>
+    <th>Total</th>
+    <th>Availdate</th>
+  </tr>
+
+<% @ratgrades.each do |ratgrade| %>
+  <tr>
+    <td><%=h ratgrade.warehouse_id %></td>
+    <td><%=h ratgrade.name %></td>
+    <td><%=h ratgrade.total %></td>
+    <td><%=h ratgrade.availdate %></td>
+    <td><%= link_to 'Show', ratgrade %></td>
+    <td><%= link_to 'Edit', edit_ratgrade_path(ratgrade) %></td>
+    <td><%= link_to 'Destroy', ratgrade, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ratgrade', new_ratgrade_path %>

@@ -1,0 +1,31 @@
+<h1>Editing sale</h1>
+
+<%= form_for( @sale) do |f| %>
+
+  <p>
+    <%= f.label :amount %><br />
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    <%= f.label :ratgrade_id %><br />
+    <%= f.text_field :ratgrade_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :customer_id %><br />
+    <%= f.text_field :customer_id %>
+  </p>
+  <p>
+    <%= f.label :allocated %><br />
+    <%= f.check_box :allocated %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sale %> |
+<%= link_to 'Back', sales_path %>

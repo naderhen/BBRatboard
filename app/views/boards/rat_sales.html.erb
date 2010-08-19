@@ -1,0 +1,32 @@
+<h1>Listing sales for <%= @board.board_date.to_s(:long)%></h1>
+
+<table class="stylized">
+  <tr>
+    <th>Amount</th>
+    <th>Grade</th>
+    <th>Salesperson</th>
+    <th>Customer</th>
+    <th>Allocated</th>
+	<th>Actions</th>
+	<th>&nbsp; </th>
+	<th>&nbsp; </th>
+  </tr>
+
+<% @sales.each do |sale| %>
+  <tr>
+    <td><%=h sale.amount %></td>
+    <td><%=h sale.ratgrade.name %></td>
+    <td><%=h sale.user.full_name %></td>
+    <td><%=h sale.customer.name %></td>
+    <td><%=h sale.allocated %></td>
+    <td><%= link_to 'Show', sale %></td>
+    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Back To Dashboard', root_url %>
+

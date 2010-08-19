@@ -1,0 +1,23 @@
+<p>
+  <b>Warehouse:</b>
+  <%=h @ratgrade.warehouse_id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @ratgrade.name %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%=h @ratgrade.total %>
+</p>
+
+<p>
+  <b>Availdate:</b>
+  <%=h @ratgrade.availdate %>
+</p>
+
+
+<%= link_to 'Edit', edit_ratgrade_path(@ratgrade) %> |
+<%= link_to 'Back', ratgrades_path %>

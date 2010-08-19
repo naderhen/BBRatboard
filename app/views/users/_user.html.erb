@@ -1,0 +1,38 @@
+<%= form_for @user do |form| %>  
+<%= form.error_messages %>  
+<ol class="formList">  
+	<li>  
+	    <%= form.label :full_name, "Full Name" %>  
+	    <%= form.text_field :full_name %>  
+	</li>	
+	
+  <li>  
+    <%= form.label :login, "Username" %>  
+    <%= form.text_field :login %>  
+  </li>  
+  <li>  
+    <%= form.label :email, "Email" %>  
+    <%= form.text_field :email %>  
+  </li>  
+  <li>  
+    <%= form.label :password, "Password" %>  
+    <%= form.password_field :password %>  
+  </li>  
+  <li>  
+    <%= form.label :password_confirmation, "Password confirmation" %>  
+    <%= form.password_field :password_confirmation %>  
+  </li>  
+
+<% for role in Role.all %>  
+    <div>  
+      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>  
+      <%= role.name %>  
+    </div>  
+<% end %>
+
+
+  <li>  
+    <%= form.submit "Submit" %>  
+  </li>  
+</ol>  
+<% end %>
