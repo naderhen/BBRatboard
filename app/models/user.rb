@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_and_belongs_to_many :reports
   has_many :roles, :through => :assignments
+  has_many :sales
+  has_many :ratgrades, :through=>:sales
+  
   
   validates_presence_of :full_name, :on => :create, :message => "can't be blank"
 

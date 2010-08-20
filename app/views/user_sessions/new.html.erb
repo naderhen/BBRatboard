@@ -1,6 +1,6 @@
 <h3>Log in</h3>
   
-<%= form_for @user_session, :html => { :id => "loginform" } do |form| %>  
+<%= form_for @user_session, :url=>{:action=>"create"}, :html => { :id => "loginform" } do |form| %>  
 <%= form.error_messages %>  
 	<p>
 		<label for="username">Username:</label><br/>

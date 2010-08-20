@@ -6,7 +6,7 @@ gem 'rails', '3.0.0.rc'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
-
+gem 'rails3-jquery-autocomplete', '>= 0.2.2'
 gem "friendly_id"
 gem "authlogic"
 # Use unicorn as the web server

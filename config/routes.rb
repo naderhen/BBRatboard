@@ -8,9 +8,10 @@ Bbv4::Application.routes.draw do
     resources :customers
 
     resources :ratgrades do
-      resources :sales
+      resources :sales do
+        get :autocomplete_customer_name, :on => :collection
+      end
     end
-    
 
 
     resources :warehouses

@@ -58,6 +58,7 @@ GEM
       activesupport (= 3.0.0.rc)
       bundler (>= 1.0.0.rc.1)
       railties (= 3.0.0.rc)
+    rails3-jquery-autocomplete (0.2.2)
     railties (3.0.0.rc)
       actionpack (= 3.0.0.rc)
       activesupport (= 3.0.0.rc)
@@ -77,4 +78,5 @@ DEPENDENCIES
   authlogic
   friendly_id
   rails (= 3.0.0.rc)
+  rails3-jquery-autocomplete (>= 0.2.2)
   sqlite3-ruby

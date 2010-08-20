@@ -20,7 +20,7 @@ function add_rows(link, association, content) {
 
 
 $(function() {
-		
+		$(".hide_me").hide()
 		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
 		
 		$("#tabs, #tabs2").tabs();

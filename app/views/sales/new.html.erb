@@ -10,8 +10,11 @@
 
 	<%= f.hidden_field :user_id, :value => current_user.id %> 
 	  <p>
-	    <%= f.label :customer_id %><br />
-		<%= collection_select(:sale, :customer_id, Customer.all, :id, :name) %>
+	    <%= f.label "Customer ID" %><br />
+		<%= f.text_field :customer_id, :class=>"hide_me"%>
+		
+		<input type="text" autocomplete="<%=autocomplete_customer_name_ratgrade_sales_path%>" id_element="#sale_customer_id">
+		
 	  </p>
 			<%= f.hidden_field :allocated, :value => "false" %> 
   <p>

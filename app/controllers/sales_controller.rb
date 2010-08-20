@@ -1,9 +1,12 @@
 class SalesController < ApplicationController
+  autocomplete :customer, :name, :full=>true
+  autocomplete :ratgrade, :name, :full=>true
+  
   # GET /sales
   # GET /sales.xml
   def index
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
-    @sales = @ratgrade.sales
+    
+    @sales = Sale.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,15 +28,19 @@ class SalesController < ApplicationController
 
   # GET /sales/new
   # GET /sales/new.xml
+  
   def new
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
-    @sale = @ratgrade.sales.build
-
+    
+      @ratgrade = Ratgrade.find(params[:ratgrade_id])
+      @sale = @ratgrade.sales.build
+      
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @sale }
     end
   end
+  
+
 
   # GET /sales/1/edit
   def edit
@@ -44,12 +51,13 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.xml
   def create
+
     @ratgrade = Ratgrade.find(params[:ratgrade_id])
     @sale = @ratgrade.sales.build(params[:sale])
 
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to ratgrade_url(@sale.ratgrade_id), :notice => 'Sale was successfully created.' }
+        format.html { redirect_to new_ratgrade_sale_path(@ratgrade), :notice => 'Sale was successfully updated.' }
         format.xml  { render :xml => @sale, :status => :created, :location => @sale }
       else
         format.html { render :action => "new" }
@@ -77,8 +85,7 @@ class SalesController < ApplicationController
   # DELETE /sales/1
   # DELETE /sales/1.xml
   def destroy
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
-    @sale = @ratgrade.sales.find(params[:id])
+    @sale = Sale.find(params[:id])
     @sale.destroy
 
     respond_to do |format|

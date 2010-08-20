@@ -17,6 +17,7 @@ class BoardsController < ApplicationController
   def show
     @board = Board.find(params[:id])
     @salesreps = Role.find(2).users
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @board }
