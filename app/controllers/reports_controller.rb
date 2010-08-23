@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
       format.html {render :layout => 'pdf'}
       format.xml  { render :xml => @report }
       format.pdf do
-        render (:pdf=>"report",
+        render(:pdf=>"report",
                 :layout=>"pdf.html")
       end
     end
