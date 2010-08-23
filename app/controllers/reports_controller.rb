@@ -20,6 +20,10 @@ class ReportsController < ApplicationController
     respond_to do |format|
       format.html {render :layout => 'pdf'}
       format.xml  { render :xml => @report }
+      format.pdf do
+        render (:pdf=>"report",
+                :layout=>"pdf.html")
+      end
     end
   end
 
@@ -48,6 +52,10 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
+        @users=@report.users
+        @users.each do |user|
+          ReportMailer.distribute_report(@report,user).deliver
+        end
         format.html { redirect_to(@report, :notice => 'Report was successfully created.') }
         format.xml  { render :xml => @report, :status => :created, :location => @report }
       else
@@ -84,4 +92,14 @@ class ReportsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def distribute
+    @report = Report.find(params[:id])
+    @users=@report.users
+    @users.each do |user|
+      ReportMailer.distribute_report(@report,user).deliver
+    end
+    
+  end
+  
 end

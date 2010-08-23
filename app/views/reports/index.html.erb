@@ -22,6 +22,7 @@
     <td><%= link_to 'Show', report %></td>
     <td><%= link_to 'Edit', edit_report_path(report) %></td>
     <td><%= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete %></td>
+ 	<td><%= link_to 'Distribute', distribute_report_path(report), :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>

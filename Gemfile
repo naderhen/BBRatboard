@@ -9,6 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'rails3-jquery-autocomplete', '>= 0.2.2'
 gem "friendly_id"
 gem "authlogic"
+gem "pdfkit"
 # Use unicorn as the web server
 # gem 'unicorn'
 

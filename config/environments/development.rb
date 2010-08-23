@@ -19,4 +19,8 @@ Bbv4::Application.configure do
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
+  
+  config.after_initialize do
+    WICKED_PDF[:exe_path] = "/usr/local/bin/wkhtmltopdf"
+  end
 end

@@ -20,7 +20,9 @@ Bbv4::Application.routes.draw do
       get :rat_sales, :on => :member
     end
 
-    resources :reports
+    resources :reports do
+      get :distribute, :on=>:member
+    end
     resources :users
     resources :user_sessions
     match "login" => "user_sessions#new", :as => "login" 
