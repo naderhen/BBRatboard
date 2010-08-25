@@ -1,6 +1,12 @@
 <% if @ratboard%>
 	<h1>Today's RATboard <span><%= link_to "Sales Summary", rat_sales_board_path(@ratboard)%></span></h1>
 	<%= render 'boards/ratboard'%>
+	
+	
+<% else %>
+
+	<h2>There is no RATBoard associated with today's date!</h2
+	<h3> Click <%=link_to "Here", new_board_path%> to create one</h3>
 <% end %>
 
 

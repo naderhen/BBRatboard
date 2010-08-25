@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100815211614) do
+ActiveRecord::Schema.define(:version => 20100825154340) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "user_id"
@@ -85,6 +85,8 @@ ActiveRecord::Schema.define(:version => 20100815211614) do
     t.boolean  "allocated"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "warehouse_id"
+    t.integer  "board_id"
   end
 
   create_table "slugs", :force => true do |t|

@@ -1,7 +1,7 @@
 class Warehouse < ActiveRecord::Base
   belongs_to :board
   has_many :ratgrades, :dependent => :destroy
-  has_many :sales, :through=>:ratgrades
+  has_many :sales
   accepts_nested_attributes_for :ratgrades, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
   
   

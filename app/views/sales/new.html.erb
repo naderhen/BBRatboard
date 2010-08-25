@@ -3,6 +3,7 @@
 <%= form_for [@ratgrade,@sale] do |f| %>
 
 
+
   <p>
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
@@ -16,6 +17,8 @@
 		<input type="text" autocomplete="<%=autocomplete_customer_name_ratgrade_sales_path%>" id_element="#sale_customer_id">
 		
 	  </p>
+	<%= f.hidden_field :warehouse_id, :value => @ratgrade.warehouse.id %> 
+	<%= f.hidden_field :board_id, :value => @ratgrade.warehouse.board.id %> 
 			<%= f.hidden_field :allocated, :value => "false" %> 
   <p>
     <%= f.submit 'Create' %>

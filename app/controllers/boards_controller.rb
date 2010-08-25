@@ -86,7 +86,7 @@ class BoardsController < ApplicationController
   
   def rat_sales
     @board = Board.find(params[:id])
-    @sales = @board.ratgrades.collect{|a| a.sales }.flatten
+    @sales = @board.sales
     
     
     
