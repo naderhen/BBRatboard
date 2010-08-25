@@ -17,7 +17,7 @@ class SalesController < ApplicationController
   # GET /sales/1
   # GET /sales/1.xml
   def show
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
+
     @sale = Sale.find(params[:id])
 
     respond_to do |format|
@@ -44,7 +44,6 @@ class SalesController < ApplicationController
 
   # GET /sales/1/edit
   def edit
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
     @sale = Sale.find(params[:id])
   end
 
