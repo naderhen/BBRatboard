@@ -7,4 +7,4 @@
 #  :enable_starttls_auto => true  
 #}
 
-#ActionMailer::Base.default_url_options[:host] = "bbv6.heroku.com"
+ActionMailer::Base.default_url_options[:host] = "bbv6.heroku.com"
