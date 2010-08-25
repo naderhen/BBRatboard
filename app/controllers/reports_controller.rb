@@ -92,9 +92,9 @@ class ReportsController < ApplicationController
   def distribute
     @report = Report.find(params[:id])
     @users=@report.users
-    kit = PDFKit.new(report_path(@report,:format=>"pdf"))
+    
     @users.each do |user|
-      ReportMailer.distribute_report(@report,user,kit).deliver
+      ReportMailer.distribute_report(@report,user).deliver
     end
     
   end
