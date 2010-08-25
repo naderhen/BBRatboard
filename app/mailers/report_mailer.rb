@@ -4,9 +4,10 @@ class ReportMailer < ActionMailer::Base
   
   
   
-  def distribute_report(report,user) 
+  def distribute_report(report,user,kit) 
     @report = report
     @user = user
+    attachments['report.pdf']=kit.to_file
     mail(:to => user.email, :subject=>"Testing")
   end
 end
