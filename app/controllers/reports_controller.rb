@@ -20,10 +20,6 @@ class ReportsController < ApplicationController
     respond_to do |format|
       format.html {render :layout => 'pdf'}
       format.xml  { render :xml => @report }
-      format.pdf do
-        render(:pdf=>"report",
-                :layout=>"pdf.html")
-      end
     end
   end
 
