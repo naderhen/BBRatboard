@@ -52,10 +52,10 @@ class ReportsController < ApplicationController
 
     respond_to do |format|
       if @report.save
-        @users=@report.users
-        @users.each do |user|
-          ReportMailer.distribute_report(@report,user).deliver
-        end
+        #@users=@report.users
+        #@users.each do |user|
+        #  ReportMailer.distribute_report(@report,user).deliver
+        #end
         format.html { redirect_to(@report, :notice => 'Report was successfully created.') }
         format.xml  { render :xml => @report, :status => :created, :location => @report }
       else
