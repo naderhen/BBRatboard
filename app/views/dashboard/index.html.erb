@@ -3,6 +3,17 @@
 	<%= render 'boards/ratboard'%>
 	
 	
+	<% content_for(:quick_title) do %>
+	Your Sales Today
+	<% end %>
+
+	<% content_for(:quick_box) do %>
+		<%= render 'user_sales'%>
+	<% end %>
+	
+	
+	
+	
 <% else %>
 
 	<h2>There is no RATBoard associated with today's date!</h2
@@ -13,10 +24,3 @@
 
 
 
-<% content_for(:quick_title) do %>
-Your Sales Today
-<% end %>
-
-<% content_for(:quick_box) do %>
-	<%= render 'user_sales'%>
-<% end %>
