@@ -4,8 +4,7 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Reports: <%= controller.action_name %></title>
-	<%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.nyroModal.pack','administry','autocomplete-rails' %>  
-  	<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom' %>
+
 
 
 	<%= csrf_meta_tag%>
@@ -171,6 +170,11 @@
 	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- Admin template javascript load -->
+
+
+
+<%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.nyroModal.pack','administry','autocomplete-rails' %>  
+<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom' %>
 
 </html>
 </body>
