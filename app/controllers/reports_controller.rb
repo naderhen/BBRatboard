@@ -15,12 +15,16 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.xml
   def show
-    @report = Report.find(params[:id])
 
-    respond_to do |format|
-      format.html {render :layout => 'pdf'}
-      format.xml  { render :xml => @report }
-    end
+      @report = Report.find(params[:id])
+
+      respond_to do |format|
+        format.html {render :layout => 'pdf'}
+        format.xml  { render :xml => @report }
+      end  
+
+    
+    
   end
 
   # GET /reports/new

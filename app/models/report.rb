@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
   
   accepts_nested_attributes_for :categories, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true  
   
-  
+  has_friendly_id :random_hash, :use_slug => true
   
   
   def random_hash

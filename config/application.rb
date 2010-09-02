@@ -33,7 +33,7 @@ module Bbv4
 
     # JavaScript files you want as :defaults (application.js is always included).
     # config.action_view.javascript_expansions[:defaults] = %w(jquery rails)
-    config.middleware.use PDFKit::Middleware
+    config.middleware.use PDFKit::Middleware, :print_media_type=>true
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
     # Configure sensitive parameters which will be filtered from the log file.
