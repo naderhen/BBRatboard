@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Reports: <%= controller.action_name %></title>
 
-
+<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom', 'sales_report', :media=>'all' %>
 
 	<%= csrf_meta_tag%>
 </head>
@@ -14,7 +14,7 @@
 	<header id="top">
 		<div class="wrapper">
 			<!-- Title/Logo - can use text instead of image -->
-			<div id="title"><%= image_tag "logo.png", :size=>"339x44"%><!--<span>Administry</span> demo--></div>
+			<div id="title">&nbsp;<!--<span>Big Blue Ocean RATBoard</span>--></div>
 			<!-- Top navigation -->
 			<div id="topnav">
 				<a href="#"><%= image_tag "user_32.png", :size=>"16x16", :class=>"avatar"%></a>
@@ -68,9 +68,7 @@
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->
-			<!-- Aside links -->
-			<aside><b>English</b> &middot; <a href="#">Spanish</a> &middot; <a href="#">German</a></aside>
-			<!-- End of Aside links -->
+
 		</div>
 	</header>
 	
@@ -137,45 +135,18 @@
 	<!-- Page footer -->
 	<footer id="bottom">
 		<div class="wrapper">
-			<nav>
-				<a href="#">Dashboard</a> &middot;
-				<a href="#">Content</a> &middot;
-				<a href="#">Reports</a> &middot;
-				<a href="#">Users</a> &middot;
-				<a href="#">Media</a> &middot;
-				<a href="#">Events</a> &middot;
-				<a href="#">Newsletter</a> &middot;
-				<a href="#">Settings</a>
-			</nav>
-			<p>Copyright &copy; 2010 <b><a href="http://themeforest.net/user/zoranjuric" title="Visit my profile page @ThemeForest">Zoran Juric</a></b> | Icons by <a href="http://www.famfamfam.com/">FAMFAMFAM</a></p>
+			
+			
 		</div>
 	</footer>
 	<!-- End of Page footer -->
-	
-	<!-- Animated footer -->
-	<footer id="animated">
-		<ul>
-			<li><a href="#">Dashboard</a></li>
-			<li><a href="#">Content</a></li>
-			<li><a href="#">Reports</a></li>
-			<li><a href="#">Users</a></li>
-			<li><a href="#">Media</a></li>
-			<li><a href="#">Events</a></li>
-			<li><a href="#">Newsletter</a></li>
-			<li><a href="#">Settings</a></li>
-		</ul>
-	</footer>
-	<!-- End of Animated footer -->
-	
-	<!-- Scroll to top link -->
-	<a href="#" id="totop">^ scroll to top</a>
 
 <!-- Admin template javascript load -->
 
 
 
 <%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.nyroModal.pack','administry','autocomplete-rails' %>  
-<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom' %>
+
 
 </html>
 </body>

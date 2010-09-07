@@ -945,12 +945,12 @@
 	/* Page title
 	---------------------------------------------------------------------*/
 
-	#title {
-		color:#FFF;
-		font:bold 2.4em/26px 'Trebuchet MS',Trebuchet,Arial,sans-serif;
-		letter-spacing:-0.02em;
-		padding:20px 0 22px;
-		text-shadow:1px 1px 3px #111;
+	#title{
+		width:339px;
+		height:55px;
+		background-image:url('../images/logo.png');
+		background-repeat:no-repeat;
+		margin-top:10px;
 	}
 	#title span {
 		color: #FFC806; 
