@@ -1,3 +1,6 @@
+
+<% if current_user.staff? %>
+
 <% if @ratboard%>
 	<h1>Today's RATboard <span><%= link_to "Sales Summary", rat_sales_board_path(@ratboard)%></span></h1>
 	<%= render 'boards/ratboard'%>
@@ -22,8 +25,12 @@
 
 
 
+<% else %>
 
 
+
+
+<% end%>
 
 
 

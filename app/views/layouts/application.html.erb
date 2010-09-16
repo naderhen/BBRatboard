@@ -66,10 +66,12 @@
 					<% end %>
 					
 					
-					<% if current_user.admin? %>
+					<% if current_user.admin? || current_user.shipper? %>
 					<li><%= link_to "Market Reports", reports_path%></li>
+					<% end %>
 					
 					
+					<% if current_user.admin? %>
 					<li>
 						<%= link_to "Users", users_path%>
 					</li>
