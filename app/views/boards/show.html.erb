@@ -1,5 +1,8 @@
-<h1>RATboard For <%= @board.board_date.to_s(:long)%> <span><%= link_to "Sales Summary", rat_sales_board_path(@board)%></span></h1>
-<hr/>
+<%= content_for :headline do %>
+<h1>RATboard For <%= @board.board_date.to_s(:long)%> &rarr; <span><%= link_to"Sales Summary", rat_sales_board_path(@board), :class=>"btn btn-green"%></span></h1>
+
+<% end %>
+
 
 	
 	<% for warehouse in @board.warehouses %>
