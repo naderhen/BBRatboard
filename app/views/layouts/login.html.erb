@@ -35,7 +35,13 @@
 		<!-- Wrapper -->
 		<div class="wrapper-login">
 				<!-- Login form -->
-				<section class="full">					
+				<section class="full">	
+					<% if flash[:notice] %>
+						<div class="flash box box-success">
+							<%= flash[:notice] %>	
+						</div>
+					<% end %>
+									
 					<%= yield %>
 					
 				</section>

@@ -99,8 +99,13 @@
 		<div class="wrapper">
 				<!-- Left column/section -->
 				<section class="column width6 first">	
-					<%=flash[:notice]%>	
-								
+					
+					<% if flash[:notice] %>
+						<div class="flash box box-success">
+							<%= flash[:notice] %>	
+						</div>
+					<% end %>
+					
 					<%= yield %>
 					
 
