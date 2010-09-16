@@ -1,8 +1,11 @@
 
 
 <% if @ratboard%>
-	<h1>Today's RATboard</h1>
-	<%= link_to"Sales Summary", rat_sales_board_path(@ratboard), :class=>"btn btn-green"%>
+	<%= content_for :headline do %>
+	<h1>Today's RATBoard &rarr; <span><%= link_to"Sales Summary", rat_sales_board_path(@ratboard), :class=>"btn btn-green"%></span></h1>
+	
+	<% end %>
+	
 	
 
 	
@@ -27,3 +30,8 @@
 	<h2>There is no RATBoard associated with today's date!</h2
 	<h3> Click <%=link_to "Here", new_board_path%> to create one</h3>
 <% end %>
+
+
+
+
+<div id="progress2" class="progress full progress-blue" value="2"><span style="width: 40%; display: block; "><b style="display: inline; ">40%</b></span></div>
