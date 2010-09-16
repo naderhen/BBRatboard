@@ -35,7 +35,13 @@
 				<% @salesreps.each do |salesrep|%>
 					<td class="clickable" ><%=h ratgrade.sales.sum('amount',:conditions=>{:user_id=>salesrep.id})%></td>
 				<%end%>
-				<td class="saleimg"><%= link_to image_tag("add.png", :border=>0, :width=>20, :height=>20), new_ratgrade_sale_path(ratgrade) %></td>
+				<td class="last">
+				
+				
+					<a href="<%=new_ratgrade_sale_path(ratgrade)%>" class="btn"><span class="icon icon-add"> </span></a>
+				
+					
+					</td>
 			  </tr>
 			<% end %>
 			</tbody>

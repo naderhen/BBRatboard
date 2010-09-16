@@ -1,7 +1,13 @@
 
 
 <% if @ratboard%>
-	<h1>Today's RATboard <span><%= link_to "Sales Summary", rat_sales_board_path(@ratboard)%></span></h1>
+	<h1>Today's RATboard</h1>
+	<%= link_to"Sales Summary", rat_sales_board_path(@ratboard), :class=>"btn btn-green"%>
+	
+
+	
+	
+	
 	<%= render 'boards/ratboard'%>
 	
 	
