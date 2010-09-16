@@ -8,6 +8,8 @@ before_filter :require_user
           @my_sales = @sales.find(:all, :conditions=>["user_id=?", current_user.id]) 
         end
 
+        @reports = @current_user.reports
+        @users=User.all
         
   end
 
