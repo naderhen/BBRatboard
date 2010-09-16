@@ -1,4 +1,6 @@
+
 class BoardsController < ApplicationController
+  before_filter :require_user
   # GET /boards
   # GET /boards.xml
   def index

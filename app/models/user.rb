@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :ratgrades, :through=>:sales
   
   
-  validates_presence_of :full_name, :on => :create, :message => "can't be blank"
+
 
   
   def role_symbols
@@ -15,4 +15,19 @@ class User < ActiveRecord::Base
         role.name.underscore.to_sym
       end
   end
+  
+  
+  def admin?
+    self.roles.exists?(1)
+  end
+  
+  def staff?
+      self.roles.exists?(1) || self.roles.exists?(2) || self.roles.exists?(3)
+  end
+  
+  def shipper?
+    self.roles.exists?(4)
+  end
+  
+
 end

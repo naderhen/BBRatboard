@@ -1,11 +1,20 @@
 class ReportsController < ApplicationController
   require 'active_support/secure_random'
+  before_filter :require_user
   
   # GET /reports
   # GET /reports.xml
   def index
-    @reports = Report.all
+    if current_user.admin?
+      @reports = Report.all
+    elsif current_user.shipper?
+      @reports = @current_user.reports
+    end
+    
+    
     @users=User.all
+    
+   
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @reports }
@@ -15,8 +24,15 @@ class ReportsController < ApplicationController
   # GET /reports/1
   # GET /reports/1.xml
   def show
-
+    @r= Report.find(params[:id])
+    
+    if @r.users.exists?(current_user) || current_user.admin?
       @report = Report.find(params[:id])
+    else
+      flash[:notice] = "You are not authorized to view this report!"  
+      redirect_to reports_path and return
+      
+    end
 
       respond_to do |format|
         format.html {render :layout => 'pdf'}

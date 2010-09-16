@@ -1,4 +1,5 @@
 class SalesController < ApplicationController
+  before_filter :require_user
   autocomplete :customer, :name, :full=>true
   autocomplete :ratgrade, :name, :full=>true
   

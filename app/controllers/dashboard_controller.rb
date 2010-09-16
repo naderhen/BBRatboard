@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-
+before_filter :require_user
   def index
         @ratboard=Board.for_today.first
         @salesreps = Role.find(2).users

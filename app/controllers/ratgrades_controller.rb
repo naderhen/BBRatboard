@@ -1,4 +1,5 @@
 class RatgradesController < ApplicationController
+  before_filter :require_user
   # GET /ratgrades
   # GET /ratgrades.xml
   def index

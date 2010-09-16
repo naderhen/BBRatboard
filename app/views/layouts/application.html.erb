@@ -21,11 +21,11 @@
 				<% if current_user %>
 				
 				Logged in as <b><%= current_user.login%></b><span>|
-					Single Access Token <b><%= current_user.single_access_token %></b>
+					</b>
 
 				<% end %>
 				
-				</span> <a href="#">Settings</a>
+				</span> <%= link_to "Settings", user_path(current_user)%>
 				<span>|</span> 
 				
 				<% if current_user %>
@@ -38,33 +38,43 @@
 				<%= link_to "Login", login_path %><br />
 				
 				<% end %>
-				<small>You have <a href="#" class="high"><b>1</b> new message!</a></small>
+				<% if current_user.staff? %>
+					<small>You are an <a href="#" class="high"> Admin!</a></small><br />
+					<small>You're Single Access Token is:  <a href="#" class="high"><%= current_user.single_access_token %> </a></small>
+					
+				<% end %>
 			</div>
 			<!-- End of Top navigation -->
 			<!-- Main navigation -->
 			<nav id="menu">
 				<ul class="sf-menu">
+					
+					<% if current_user.staff? %>
 					<li><%= link_to "Dashboard", root_url%></li>
 					<li>
 						<%= link_to "RATBoard", boards_path%>
 						<ul>
 							<li>
-								<%= link_to "Today's RATBoard", boards_path%>
+								<%= link_to "Today's RATBoard", root_url%>
 							</li>
 							<li>
-								<%= link_to "Today's Sales", boards_path%>
+								<%= link_to "History", boards_path%>
 							</li>
-							<li>
-								<a href="#">Sample Pages...</a>
-								<ul>
-									<li><a href="samples-files.html">Files</a></li>
-									<li><a href="samples-products.html">Products</a></li>
-								</ul>
-							</li>
+							
 						</ul>
 					</li>
+					<% end %>
+					
+					
+					<% if current_user.admin? %>
 					<li><%= link_to "Market Reports", reports_path%></li>
-					<li><%= link_to "Users", users_path%></li>
+					
+					
+					<li>
+						<%= link_to "Users", users_path%>
+					</li>
+					<% end %>
+					
 				</ul>
 			</nav>
 			<!-- End of Main navigation -->
@@ -87,7 +97,8 @@
 		<div class="wrapper">
 				<!-- Left column/section -->
 				<section class="column width6 first">	
-					<%=flash[:notice]%>				
+					<%=flash[:notice]%>	
+								
 					<%= yield %>
 					
 

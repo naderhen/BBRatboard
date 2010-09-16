@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :require_user
   def new  
       @user = User.new  
   end  
@@ -46,6 +47,17 @@ class UsersController < ApplicationController
     else  
       render :action => 'edit'  
     end  
+  end
+
+
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(users_url) }
+      format.xml  { head :ok }
+    end
   end
 
 end
