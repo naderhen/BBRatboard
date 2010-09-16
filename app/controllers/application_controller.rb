@@ -23,5 +23,24 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    
+    def require_admin
+      unless current_user.admin?
+        flash[:notice] = "You are not authorized to view this page!"
+        redirect_to root_url
+        return false
+      end
+    end
+    
+    def require_staff
+      session[:return_to] ||= request.referer
+      
+      unless current_user.staff?
+        flash[:notice] = "You are not authorized to do this!"
+        redirect_to session[:return_to]
+        return false
+      end
+    end
 
 end

@@ -1,6 +1,7 @@
 class ReportsController < ApplicationController
   require 'active_support/secure_random'
-  before_filter :require_user
+  before_filter :require_user, :except => :index
+  before_filter :require_admin, :except=>:show
   
   # GET /reports
   # GET /reports.xml
