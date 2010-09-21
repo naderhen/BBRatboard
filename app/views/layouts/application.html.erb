@@ -74,6 +74,18 @@
 					<% if current_user.admin? %>
 					<li>
 						<%= link_to "Users", users_path%>
+						<ul>
+							<li>
+								<%= link_to "Shippers", users_path%>
+							</li>
+							<li>
+								<%= link_to "Customers", customers_path%>
+							</li>
+							<li>
+								<%= link_to "Manage Roles", roles_path%>
+							</li>
+							
+						</ul>
 					</li>
 					<% end %>
 					

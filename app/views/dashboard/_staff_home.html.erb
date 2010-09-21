@@ -9,6 +9,7 @@
 	
 
 	
+	<div id="progress2" class="progress full progress-<%=@ratboard.progress_color %>" value="2"><span style="width: <%= @ratboard.pct_sold %>%; display: block; "><b style="display: inline; "><%= number_with_precision(@ratboard.pct_sold, :precision => 2) %>%</b></span></div>
 	
 	
 	<%= render 'boards/ratboard'%>
@@ -33,5 +34,3 @@
 
 
 
-
-<div id="progress2" class="progress full progress-blue" value="2"><span style="width: 40%; display: block; "><b style="display: inline; ">40%</b></span></div>

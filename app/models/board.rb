@@ -13,4 +13,46 @@ class Board < ActiveRecord::Base
   validates_uniqueness_of :board_date, :on => :create, :message => "There is already a Board created for this day"
 
 
+  def available
+    availableamt=0
+    self.warehouses.each do |warehouse|
+      availableamt+=warehouse.available
+    end
+    return availableamt
+  end
+  
+  
+  def sold
+    soldamt=0
+    self.warehouses.each do |warehouse|
+      soldamt+=warehouse.sold
+    end
+    return soldamt
+  end
+  
+  
+  def pct_sold
+    inventory = self.available+self.sold
+    
+    percent = self.sold.to_f/inventory.to_f
+    
+    p = percent * 100
+    return p
+    
+  end
+  
+  
+  def progress_color
+    if self.pct_sold > 0 && self.pct_sold < 33
+      return "red"
+    elsif self.pct_sold >= 33 && self.pct_sold < 66
+      return "blue"
+    elsif self.pct_sold >= 66 && self.pct_sold < 100
+      return "green"
+    end
+    
+  end
+  
+
+
 end
