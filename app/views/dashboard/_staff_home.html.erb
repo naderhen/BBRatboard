@@ -8,8 +8,11 @@
 	
 	
 
-	
-	<div id="progress2" class="progress full progress-<%=@ratboard.progress_color %>" value="2"><span style="width: <%= @ratboard.pct_sold %>%; display: block; "><b style="display: inline; "><%= number_with_precision(@ratboard.pct_sold, :precision => 2) %>%</b></span></div>
+	<fieldset>
+	<legend>Today's Progress</legend>
+		<div id="progress2" class="progress full progress-<%=@ratboard.progress_color %>" value="2"><span style="width: <%= @ratboard.pct_sold %>%; display: block; "><b style="display: inline; "><%= number_with_precision(@ratboard.pct_sold, :precision => 2) %>%</b></span></div>
+	</fieldset>
+
 	
 	
 	<%= render 'boards/ratboard'%>
