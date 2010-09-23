@@ -17,4 +17,6 @@ class CsvController < ApplicationController
     table.save
     redirect_to import_table_path(table)
   end
+
+  
 end

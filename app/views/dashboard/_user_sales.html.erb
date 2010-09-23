@@ -1,5 +1,16 @@
+
+<table width="100%">
+	<tbody>
+
 <%@my_sales.each do |sale| %>
-	
-	<%= sale.amount%> of <%=sale.ratgrade.name %> to <%= sale.customer.name%>
+
+	<tr>
+		<td><%= sale.amount%></td>
+		<td><%=sale.ratgrade.name %></td>
+		<td><%= sale.customer.name%></td>
+	</tr>		
 	
 <% end %>
+
+	</tbody>
+</table>

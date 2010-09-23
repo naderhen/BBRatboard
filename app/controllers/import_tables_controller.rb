@@ -17,7 +17,8 @@ class ImportTablesController < ApplicationController
     @import_cells = @import_table.import_cells
     @row_index_max = @import_cells.map { |cell| cell.row_index }.max
     @column_index_max = @import_cells.map { |cell| cell.column_index }.max
-    @tables = ActiveRecord::Base.connection.tables.select { |t| t != 'schema_migrations' }
+    @tables_un = ActiveRecord::Base.connection.tables.select { |t| t != 'schema_migrations' }
+    @tables = @tables_un.select { |t| t != 'reports_users'}
 
     respond_to do |format|
       format.html # show.html.erb
