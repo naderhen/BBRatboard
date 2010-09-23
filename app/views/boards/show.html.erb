@@ -44,6 +44,17 @@
 				<td class="saleimg"><%= link_to image_tag("add.png", :border=>0, :width=>20, :height=>20), new_ratgrade_sale_path(ratgrade) %></td>
 			  </tr>
 			<% end %>
+			
+			<tr class="footer">
+				<td>Totals:</td>
+				<td><%= warehouse.available%></td>
+				<td><%= warehouse.sold%></td>
+				<td><%= warehouse.available + warehouse.sold%></td>
+				<% @salesreps.each do |salesrep| %>
+					<td><%= warehouse.sales.find(:all, :conditions => ['user_id = ?', salesrep.id]).sum(&:amount) %></td>
+				<%end%>
+			</tr>
+			
 			</tbody>
 			</table>
 

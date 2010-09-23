@@ -1,5 +1,5 @@
 <%@my_sales.each do |sale| %>
 	
-	<%= sale.amount%>
+	<%= sale.amount%> of <%=sale.ratgrade.name %> to <%= sale.customer.name%>
 	
 <% end %>
