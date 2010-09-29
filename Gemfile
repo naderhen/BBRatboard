@@ -5,11 +5,12 @@ gem 'rails', '3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'mysql2'
 gem 'rails3-jquery-autocomplete', '>= 0.2.2'
 gem "friendly_id"
 gem "authlogic"
 gem "pdfkit"
+gem 'fastercsv'
 # Use unicorn as the web server
 # gem 'unicorn'
 

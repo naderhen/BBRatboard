@@ -1,5 +1,7 @@
 class DashboardController < ApplicationController
 before_filter :require_user
+  autocomplete :customer, :name, :full=>true
+
   def index
         @ratboard=Board.for_today.first
         @salesreps = Role.find(2).users
@@ -10,6 +12,7 @@ before_filter :require_user
 
         @reports = @current_user.reports
         @users=User.all
+        @sale=Sale.new
         
   end
 

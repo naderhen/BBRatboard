@@ -4,9 +4,9 @@ class RatgradesController < ApplicationController
   # GET /ratgrades.xml
   def index
     @ratgrades = Ratgrade.all
-
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
+      format.js # index.html.erb
       format.xml  { render :xml => @ratgrades }
     end
   end
@@ -18,6 +18,7 @@ class RatgradesController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
+      format.js
       format.xml  { render :xml => @ratgrade }
     end
   end
@@ -87,10 +88,8 @@ class RatgradesController < ApplicationController
   def newsale
     @sale = Sale.new
     @ratgrade=Ratgrade.find(params[:id])
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sale }
-    end
+    
+    
   end
   
   

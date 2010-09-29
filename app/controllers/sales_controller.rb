@@ -31,14 +31,14 @@ class SalesController < ApplicationController
   # GET /sales/new.xml
   
   def new
-    
-      @ratgrade = Ratgrade.find(params[:ratgrade_id])
-      @sale = @ratgrade.sales.build
+      if params[:ratgrade_id]
+        @ratgrade = Ratgrade.find(params[:ratgrade_id])
+        @sale = @ratgrade.sales.build
+      else
+        @sale = Sale.new
+      end
       
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sale }
-    end
+    render :layout => !request.xhr?
   end
   
 
@@ -51,16 +51,18 @@ class SalesController < ApplicationController
   # POST /sales
   # POST /sales.xml
   def create
-
-    @ratgrade = Ratgrade.find(params[:ratgrade_id])
-    @sale = @ratgrade.sales.build(params[:sale])
-
+    if params[:ratgrade_id]
+      @ratgrade = Ratgrade.find(params[:ratgrade_id])
+      @sale = @ratgrade.sales.build(params[:sale])
+    else
+      @sale = Sale.new(params[:sale])  
+    end  
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to new_ratgrade_sale_path(@ratgrade), :notice => 'Sale was successfully updated.' }
+        format.html { redirect_to root_url, :notice => 'Sale was successfully updated.' }
         format.xml  { render :xml => @sale, :status => :created, :location => @sale }
       else
-        format.html { render :action => "new" }
+        format.html { redirect_to root_url }
         format.xml  { render :xml => @sale.errors, :status => :unprocessable_entity }
       end
     end
@@ -89,7 +91,7 @@ class SalesController < ApplicationController
     @sale.destroy
 
     respond_to do |format|
-      format.html { redirect_to(sales_url) }
+      format.html { redirect_to(root_url) }
       format.xml  { head :ok }
     end
   end

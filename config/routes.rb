@@ -7,13 +7,17 @@ Bbv4::Application.routes.draw do
     
 
     
-    resources :sales
+    resources :sales do
+      get :autocomplete_customer_name, :on => :collection
+    end
 
     resources :assignments
 
     resources :roles
 
     resources :customers
+    
+
 
     resources :ratgrades do
       resources :sales do
@@ -34,6 +38,7 @@ Bbv4::Application.routes.draw do
     resources :users
     resources :user_sessions
     match "login" => "user_sessions#new", :as => "login" 
+    match "register" => "users#new", :as => "register" 
     match "logout" => "user_sessions#destroy", :as => "logout"  
     match "dashboard" => "dashboard#index", :as => "dashboard"   
     

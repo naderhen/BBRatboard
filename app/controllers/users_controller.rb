@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
-  before_filter :require_user
+  
   def new  
       @user = User.new  
+      render :layout=>"login"
   end  
 
   def index

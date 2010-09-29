@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Reports: <%= controller.action_name %></title>
 
-<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom', 'sales_report', :media=>'all' %>
+<%= stylesheet_link_tag 'redmond/jquery-ui-1.8.2.custom.css','style','custom', 'sales_report','colorbox', :media=>'all' %>
 
 	<%= csrf_meta_tag%>
 </head>
@@ -21,14 +21,14 @@
 				<% if current_user %>
 				
 				Logged in as <b><%= current_user.login%></b><span>|
-					</b>
+					
 
-				<% end %>
+				
 				
 				</span> <%= link_to "Settings", user_path(current_user)%>
 				<span>|</span> 
 				
-				<% if current_user %>
+				
 				
 				<%= link_to "Logout", logout_path%><br />
 				
@@ -38,7 +38,7 @@
 				<%= link_to "Login", login_path %><br />
 				
 				<% end %>
-				<% if current_user.staff? %>
+				<% if current_user && current_user.staff? %>
 					<small>You are an <a href="#" class="high"> Admin!</a></small><br />
 					<small>You're Single Access Token is:  <a href="#" class="high"><%= current_user.single_access_token %> </a></small>
 					
@@ -49,7 +49,7 @@
 			<nav id="menu">
 				<ul class="sf-menu">
 					
-					<% if current_user.staff? %>
+					<% if current_user && current_user.staff? %>
 					<li><%= link_to "Dashboard", root_url%></li>
 					<li>
 						<%= link_to "RATBoard", boards_path%>
@@ -66,12 +66,12 @@
 					<% end %>
 					
 					
-					<% if current_user.admin? || current_user.shipper? %>
+					<% if current_user && (current_user.admin? || current_user.shipper?) %>
 					<li><%= link_to "Market Reports", reports_path%></li>
 					<% end %>
 					
 					
-					<% if current_user.admin? %>
+					<% if current_user && current_user.admin? %>
 					<li>
 						<%= link_to "Users", users_path%>
 						<ul>
@@ -132,20 +132,10 @@
 				<aside class="column width2">
 					<div id="rightmenu">
 						<header>
-							<h3>Shortcut links...</h3>
+							<h3><%= yield :shortcut_title%></h3>
 						</header>
 						<dl class="first">
-							<dt><%=image_tag("key.png")%></dt>
-							<dd><a href="#">Nunc tincidunt</a></dd>
-							<dd class="last">Proin elit arcu, rutrum commodo, vehicula tempus, commodo a, risus.</dd>
-							
-							<dt><%= image_tag "delete.png", :size=>"16x16"%></dt>
-							<dd><a href="#">Proin dolor</a></dd>
-							<dd class="last">Morbi tincidunt, dui sit amet facilisis feugiat, odio metus gravida ante, ut pharetra massa metus id nunc.</dd>
-							
-							<dt><%= image_tag "add.png", :size=>"16x16"%></dt>
-							<dd><a href="#">Aenean lacinia</a></dd>
-							<dd class="last">Mauris eleifend est et turpis.</dd>
+							<%= yield :shortcut_box %>
 						</dl>
 					</div>
 					<div class="content-box">
@@ -178,7 +168,7 @@
 
 
 
-<%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.nyroModal.pack','administry','autocomplete-rails' %>  
+<%= javascript_include_tag 'jquery-1.4.2', 'rails','jquery-ui-1.8.2.custom.min', 'application','swfobject','jquery.tipTip.min','jquery.superfish.min','jquery.supersubs.min','jquery.validate_pack','jquery.validate','jquery.nyroModal.pack','administry','autocomplete-rails', 'jquery.colorbox' %>  
 
 
 </html>
