@@ -33,7 +33,7 @@ class ReportsController < ApplicationController
       @report = Report.find(params[:id])
     else
       flash[:notice] = "You are not authorized to view this report!"  
-      redirect_to reports_path and return
+      redirect_to dashboard_path and return
       
     end
 
