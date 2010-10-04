@@ -1,4 +1,5 @@
-require 'fastercsv'
+#require 'fastercsv'
+require 'csv'
 class CsvController < ApplicationController
   def import
   end
@@ -6,7 +7,7 @@ class CsvController < ApplicationController
   def upload
     table = ImportTable.new :original_path => params[:upload][:csv].original_path
     row_index = 0
-    FasterCSV.parse(params[:upload][:csv]) do |cells|
+    CSV.parse(params[:upload][:csv]) do |cells|
       column_index = 0
       cells.each do |cell|
         table.import_cells.build :column_index => column_index, :row_index => row_index, :contents => cell
