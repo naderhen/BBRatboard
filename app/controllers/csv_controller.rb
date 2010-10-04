@@ -1,6 +1,9 @@
 #require 'fastercsv'
 require 'csv'
 class CsvController < ApplicationController
+  before_filter :require_staff
+  
+  
   def import
   end
 

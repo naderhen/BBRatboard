@@ -6,9 +6,6 @@
 	<th>Sent To</th>
 	<th>Actions</th>
 	<th>&nbsp;</th>
-	<th>&nbsp;</th>
-	<th>&nbsp;</th>
-	<th>&nbsp;</th>
   </tr>
 
 <% @reports.each do |report| %>
@@ -16,9 +13,6 @@
     <td><%=h report.report_date.to_s(:long) %></td>
 	<td><%=h report.users.collect{|u|u.full_name}.join(', ')%></td>
     <td><%= link_to 'Show', report %></td>
-    <td><%= link_to 'Edit', edit_report_path(report) %></td>
-    <td><%= link_to 'Destroy', report, :confirm => 'Are you sure?', :method => :delete %></td>
- 	<td><%= link_to 'Distribute', distribute_report_path(report), :confirm => 'Are you sure?' %></td>
 	<td><%= link_to 'Download (PDF)', report_path(report, :format=>"pdf") %></td>
   </tr>
 <% end %>

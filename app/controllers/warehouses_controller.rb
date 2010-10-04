@@ -1,5 +1,7 @@
 class WarehousesController < ApplicationController
   before_filter :require_user
+  before_filter :require_staff
+ 
   # GET /warehouses
   # GET /warehouses.xml
   def index
