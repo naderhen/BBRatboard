@@ -1,0 +1,8 @@
+<%= content_for :headline do %>
+<h1>RATGrade Summary &rarr; <span><%= @ratgrade.name%> out of <%= @ratgrade.warehouse.name%></span></h1>
+
+<% end %>
+
+<h1>Sales Summary</h1>
+
+<%= render :partial=>"ratgrades/sales", :collection=> @ratgrade.sales%>
