@@ -11,7 +11,7 @@ class Board < ActiveRecord::Base
 
 
   validates_uniqueness_of :board_date, :on => :create, :message => "There is already a Board created for this day"
-
+  validates_presence_of :board_date,  :message => "can't be blank"
 
   def available
     availableamt=0
