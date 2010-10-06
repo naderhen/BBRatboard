@@ -1,6 +1,6 @@
 Bbv4::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
-  config.eager_load_paths = ['models', 'controllers', 'helpers'] 
+  
   # The production environment is meant for finished, "live" apps.
   # Code is not reloaded between requests
   config.cache_classes = true

@@ -12,7 +12,7 @@ module Bbv4
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    
+    config.eager_load_paths = ['app/models', 'app/controllers', 'app/helpers']
     # Custom directories with classes and modules you want to be autoloadable.
     # config.autoload_paths += %W(#{config.root}/extras)
 
