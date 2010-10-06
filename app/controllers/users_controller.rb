@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_staff
+  
   def new  
       @user = User.new  
       render :layout=>"login"
