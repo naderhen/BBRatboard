@@ -6,7 +6,7 @@ class Report < ActiveRecord::Base
   
   has_friendly_id :random_hash, :use_slug => true
   validates_presence_of :report_date,  :message => "can't be blank"
-  validates_presence_of :notes,  :message => "can't be blank"
+  validates_presence_of :notes,  :message => "Please enter some notes."
   
   
   def random_hash
