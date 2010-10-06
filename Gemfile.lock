@@ -60,6 +60,10 @@ GEM
       activesupport (= 3.0.0)
       bundler (~> 1.0.0)
       railties (= 3.0.0)
+    rails-erd (0.3.0)
+      activerecord (~> 3.0.0)
+      activesupport (~> 3.0)
+      ruby-graphviz (~> 0.9.17)
     rails3-jquery-autocomplete (0.3.4)
     railties (3.0.0)
       actionpack (= 3.0.0)
@@ -67,6 +71,7 @@ GEM
       rake (>= 0.8.4)
       thor (~> 0.14.0)
     rake (0.8.7)
+    ruby-graphviz (0.9.17)
     thor (0.14.1)
     treetop (1.4.8)
       polyglot (>= 0.3.1)
@@ -81,4 +86,5 @@ DEPENDENCIES
   mysql2
   pdfkit
   rails (= 3.0.0)
+  rails-erd
   rails3-jquery-autocomplete (>= 0.2.2)

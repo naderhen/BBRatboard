@@ -32,3 +32,8 @@ gem "pdfkit"
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+
+group :development do
+  gem "rails-erd"
+end
