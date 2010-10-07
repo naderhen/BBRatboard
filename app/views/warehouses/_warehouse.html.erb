@@ -21,9 +21,9 @@
 		
 		<tr class="footer ratgrade_row">
 			<td>Totals:</td>
-			<td><%= warehouse.available%></td>
-			<td><%= warehouse.sold%></td>
-			<td><%= warehouse.available + warehouse.sold%></td>
+			<td><%= number_with_precision(warehouse.available, :precision=>0)%></td>
+			<td><%= number_with_precision(warehouse.sold, :precision => 0) %></td>
+			<td><%= number_with_precision(warehouse.available + warehouse.sold, :precision=>0)%></td>
 			<% @salesreps.each do |salesrep| %>
 				<td><%= warehouse.sales.find(:all, :conditions => ['user_id = ?', salesrep.id]).sum(&:amount) %></td>
 			<%end%>
