@@ -3,7 +3,6 @@
 <table class="stylized">
   <tr>
     <th>Report</th>
-	<th>Sent To</th>
 	<th>Actions</th>
 	<th>&nbsp;</th>
   </tr>
@@ -11,7 +10,6 @@
 <% @reports.each do |report| %>
   <tr>
     <td><%=h report.report_date.to_s(:long) %></td>
-	<td><%=h report.users.collect{|u|u.full_name}.join(', ')%></td>
     <td><%= link_to 'Show', report %></td>
 	<td><%= link_to 'Download (PDF)', report_path(report, :format=>"pdf") %></td>
   </tr>
