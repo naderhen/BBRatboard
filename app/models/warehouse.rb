@@ -4,7 +4,6 @@ class Warehouse < ActiveRecord::Base
   has_many :sales
   accepts_nested_attributes_for :ratgrades, :reject_if => lambda { |a| a[:name].blank? }, :allow_destroy => true
   
-  validates_presence_of :board_id, :message => "can't be blank"
   validates_presence_of :name, :message => "can't be blank"
   
   
