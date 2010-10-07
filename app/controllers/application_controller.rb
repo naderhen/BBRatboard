@@ -43,5 +43,14 @@ class ApplicationController < ActionController::Base
         return false
       end
     end
+    
+    
+    protected
+        def render_optional_error_file(status_code)
+          status = interpret_status(status_code)
+          render :template => "/errors/#{status[0,3]}.html.erb", :status => status, :layout => 'application.html.erb'
+        end
+        
+
 
 end
