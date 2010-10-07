@@ -7,10 +7,6 @@ class ApplicationController < ActionController::Base
   helper_method :current_user  
 
   
-  protected
-    def render_optional_error_file(status_code)
-      render :template => "errors/500", :status => 500, :layout => 'application'
-    end
 
     
 
