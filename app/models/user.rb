@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :ratgrades, :through=>:sales
   
   
+  
 
 
   
