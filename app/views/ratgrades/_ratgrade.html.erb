@@ -16,6 +16,11 @@
 	<% @salesreps.each do |salesrep|%>
 		<td class="clickable" ><%= number_with_precision(ratgrade.sales.sum('amount',:conditions=>{:user_id=>salesrep.id}),:precision=> 0)%></td>
 	<%end%>
+	
+	<td>
+		<%= ratgrade.average_price%>
+	</td>
+	
 	<td class="last">
 		<a href="<%=new_ratgrade_sale_path(ratgrade)%>" class="btn"><span class="icon icon-add"> </span></a>
 	</td>

@@ -17,4 +17,9 @@ class Ratgrade < ActiveRecord::Base
   def sold
     self.sales.sum('amount')
   end
+  
+  def average_price
+    total_sales=self.sales.average("price")
+    return total_sales
+  end
 end

@@ -19,7 +19,12 @@
     <%= f.text_field :amount %>
   </p>
 
-	<%= f.hidden_field :user_id, :value => current_user.id %> 
+	<p>
+    	<%= f.label :price %><br />
+	    <%= f.text_field :price %>
+  	</p>
+
+	
 	  <p>
 	    <%= f.label "Customer" %><br />
 		<%= f.text_field :customer_id, :class=>"hide_me"%>
@@ -34,7 +39,7 @@
 
 	<%= f.hidden_field :warehouse_id %> 
 	
-	
+	<%= f.hidden_field :user_id, :value => current_user.id %> 
 	<%= f.hidden_field :board_id, :value => @ratboard.id %> 
 	<%= f.hidden_field :allocated, :value => "false" %> 
   <p>
