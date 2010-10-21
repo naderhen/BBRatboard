@@ -21,7 +21,7 @@
 :deploy_to: /srv/BBRatboard
 
 # Primary domain application will be accessed as 
-:domain: ratboard.jensio.com
+:domain: jensio.com
 
 # Domain aliases for application. One common use of this is for asset hosts.
 #:domain_aliases:
