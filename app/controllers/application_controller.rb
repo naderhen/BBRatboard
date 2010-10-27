@@ -11,6 +11,13 @@ class ApplicationController < ActionController::Base
     
 
     private  
+    
+    def mobile_device?
+      request.user_agent =~ /Mobile|webOS/ 
+    end
+    
+    helper_method :mobile_device?
+    
     def current_user_session  
       return @current_user_session if defined?(@current_user_session)  
       @current_user_session = UserSession.find  
