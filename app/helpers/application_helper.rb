@@ -1,4 +1,9 @@
 module ApplicationHelper
+  def iphone_user_agent?
+    request.env["HTTP_USER_AGENT"] && request.env["HTTP_USER_AGENT"][/(Mobile\/.+Safari)/]
+  end
+  
+  
   
   def link_to_remove_fields(name, f)  
       f.hidden_field(:_destroy) + link_to_function(name, "remove_fields(this)")  

@@ -21,6 +21,7 @@ class RatgradesController < ApplicationController
       format.html # show.html.erb
       format.js
       format.xml  { render :xml => @ratgrade }
+      format.iphone 
     end
   end
 

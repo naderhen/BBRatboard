@@ -1,18 +1,26 @@
 class UserSessionsController < ApplicationController
   def new  
     @user_session = UserSession.new  
-    render :layout=>"login"
+    respond_to do |format|
+      format.html   { render :layout=>"login"}
+      
+    end
   end
   
   def create  
     @user_session = UserSession.new(params[:user_session])  
     if @user_session.save  
       flash[:notice] = "Welcome to Big Blue Oceans! "  
-      if current_user.staff?
-        redirect_to root_url and return 
+      if iphone_request?
+        redirect_to dashboard_path and return
       else
-        redirect_to reports_path and return
-      end  
+        if current_user.staff?
+          redirect_to root_url and return 
+        else
+          redirect_to reports_path and return
+        end
+      end
+      
     else  
       render :action => 'new'  
     end  

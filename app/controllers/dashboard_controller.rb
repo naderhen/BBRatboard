@@ -14,6 +14,17 @@ before_filter :require_user
         @users=User.all
         @sale=Sale.new
         
+        
+        
+        
+        
+        respond_to do |format|
+          format.html
+          format.iphone
+        end
+        
+        
+        
   end
 
 end

@@ -1,5 +1,6 @@
 
 class ApplicationController < ActionController::Base
+  before_filter :adjust_format_for_iphone
   helper :all
   protect_from_forgery
 
@@ -12,6 +13,16 @@ class ApplicationController < ActionController::Base
 
     private  
 
+    # Set iPhone format if request to iphone.domain.com
+    def adjust_format_for_iphone
+      request.format = :iphone if iphone_request?
+    end
+    
+    # Return true for requests to iphone.domain.com
+    def iphone_request?
+      request.user_agent =~ /Mobile|webOS/  
+    end
+    
     
     def current_user_session  
       return @current_user_session if defined?(@current_user_session)  
