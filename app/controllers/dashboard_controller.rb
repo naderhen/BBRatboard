@@ -20,7 +20,7 @@ before_filter :require_user
         
         respond_to do |format|
           format.html
-          format.iphone
+          format.iphone { render :layout => false }
         end
         
         

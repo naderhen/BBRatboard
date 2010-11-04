@@ -12,7 +12,7 @@ class UserSessionsController < ApplicationController
     if @user_session.save  
       flash[:notice] = "Welcome to Big Blue Oceans! "  
       if iphone_request?
-        redirect_to dashboard_path and return
+        redirect_to root_url and return
       else
         if current_user.staff?
           redirect_to root_url and return 
