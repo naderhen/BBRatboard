@@ -1,38 +1,35 @@
-<p>
-  <b>Amount:</b>
-  <%= @sale.amount %>
-</p>
-
-<p>
-  <b>Ratgrade:</b>
-  <%= @sale.ratgrade.name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @sale.user.full_name %>
-</p>
-
-<p>
-  <b>Customer:</b>
-  <%= @sale.customer.name %>
-</p>
-
-<p>
-  <b>FOB:</b>
-  <%= @sale.fob %>
-</p>
 
 <p>
   <b>Allocated:</b>
   <%= @sale.allocated %>
 </p>
 
-<p>
-  <b>Notes:</b>
-  <%= @sale.notes %>
-</p>
+
 
 
 <%= link_to 'Edit', edit_ratgrade_sale_path(@sale.ratgrade, @sale) %> |
 <%= link_to 'Back', sales_path %>
+
+
+
+
+<div id="worksheet_line1">
+		<%= @sale.id %>
+	  	<%= @sale.user.full_name %>
+</div><!-- worksheet_line1 -->
+
+<div id="worksheet_line2">
+	<%= @sale.customer.name %>
+	<%= @sale.fob %>
+	
+</div><!-- worksheet_line1 -->
+
+<div id="worksheet_line3">
+	<%= @sale.amount %>   <%= @sale.ratgrade.name %>   <%= @sale.ratgrade.warehouse.name %>
+	
+</div><!-- worksheet_line1 -->
+
+<div id="worksheet_line4">
+	<%= @sale.notes %>
+	
+</div><!-- worksheet_line1 -->

@@ -23,7 +23,7 @@ class SalesController < ApplicationController
     @sale = Sale.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {render :layout => 'worksheet'}
       format.xml  { render :xml => @sale }
     end
   end
