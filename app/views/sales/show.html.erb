@@ -1,26 +1,36 @@
 <p>
   <b>Amount:</b>
-  <%=h @sale.amount %>
+  <%= @sale.amount %>
 </p>
 
 <p>
   <b>Ratgrade:</b>
-  <%=h @sale.ratgrade_id %>
+  <%= @sale.ratgrade.name %>
 </p>
 
 <p>
   <b>User:</b>
-  <%=h @sale.user_id %>
+  <%= @sale.user.full_name %>
 </p>
 
 <p>
   <b>Customer:</b>
-  <%=h @sale.customer_id %>
+  <%= @sale.customer.name %>
+</p>
+
+<p>
+  <b>FOB:</b>
+  <%= @sale.fob %>
 </p>
 
 <p>
   <b>Allocated:</b>
-  <%=h @sale.allocated %>
+  <%= @sale.allocated %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @sale.notes %>
 </p>
 
 

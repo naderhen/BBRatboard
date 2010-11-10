@@ -35,6 +35,7 @@ class SalesController < ApplicationController
       if params[:ratgrade_id]
         @ratgrade = Ratgrade.find(params[:ratgrade_id])
         @sale = @ratgrade.sales.build
+        @customers = Customer.all
       else
         @sale = Sale.new
       end

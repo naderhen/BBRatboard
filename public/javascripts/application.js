@@ -38,6 +38,9 @@ $(function() {
 			$(this).addClass("current");
 		});
 		
+
+		
+		
 		
 		
 		$('.sale_handle').toggle(function() {

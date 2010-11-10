@@ -2,7 +2,20 @@
 
 <%= form_for [@ratgrade,@sale] do |f| %>
 
+<p>
+    <%= f.label "Customer ID" %><br />
+	<%= f.text_field :customer_id, :class=>"hide_me"%>
+	
+	<input type="text" autocomplete="<%=autocomplete_customer_name_ratgrade_sales_path%>" id_element="#sale_customer_id">
+	
+  </p>
 
+
+
+
+<ul id="customer_list">
+	<%= render @customers %>
+</ul>
 
   <p>
     <%= f.label :amount %><br />
@@ -15,13 +28,7 @@
 	</p>
 
 	<%= f.hidden_field :user_id, :value => current_user.id %> 
-	  <p>
-	    <%= f.label "Customer ID" %><br />
-		<%= f.text_field :customer_id, :class=>"hide_me"%>
-		
-		<input type="text" autocomplete="<%=autocomplete_customer_name_ratgrade_sales_path%>" id_element="#sale_customer_id">
-		
-	  </p>
+	  
 	<%= f.hidden_field :warehouse_id, :value => @ratgrade.warehouse.id %> 
 	<%= f.hidden_field :board_id, :value => @ratgrade.warehouse.board.id %> 
 			<%= f.hidden_field :allocated, :value => "false" %> 
