@@ -1,35 +1,25 @@
 
-<p>
-  <b>Allocated:</b>
-  <%= @sale.allocated %>
-</p>
 
+	<h2 class="wk_id"><%= @sale.id %></h2>
+	<h2 class="wk_user"><%= @sale.user.full_name %></h2>
 
-
-
-<%= link_to 'Edit', edit_ratgrade_sale_path(@sale.ratgrade, @sale) %> |
-<%= link_to 'Back', sales_path %>
-
-
-
-
-<div id="worksheet_line1">
-		<%= @sale.id %>
-	  	<%= @sale.user.full_name %>
-</div><!-- worksheet_line1 -->
-
-<div id="worksheet_line2">
-	<%= @sale.customer.name %>
-	<%= @sale.fob %>
+	<h2 class="wk_customer"><%= @sale.customer.name %></h2>
+	<h2 class="wk_fob"><%= @sale.fob %></h2>
 	
-</div><!-- worksheet_line1 -->
 
-<div id="worksheet_line3">
-	<%= @sale.amount %>   <%= @sale.ratgrade.name %>   <%= @sale.ratgrade.warehouse.name %>
+	<h2 class="wk_amount"><%= @sale.amount %></h2>
+	<h2 class="wk_ratgrade"><%= @sale.ratgrade.name %></h2>
+	<h2 class="wk_warehouse"><%= @sale.ratgrade.warehouse.name %></h2>
+	<h2 class="wk_price"><%= @sale.price %></h2>
 	
-</div><!-- worksheet_line1 -->
 
-<div id="worksheet_line4">
-	<%= @sale.notes %>
+	<p class="wk_notes"><%= @sale.notes %></p>
 	
-</div><!-- worksheet_line1 -->
+
+
+
+	<div id="actions">
+	<%= link_to 'Edit', edit_ratgrade_sale_path(@sale.ratgrade, @sale) %> |
+	<%= link_to 'Back', sales_path %>
+
+	</div>

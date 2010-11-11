@@ -1,4 +1,6 @@
 Bbv4::Application.routes.draw do
+  resources :announcements
+
     resources :import_tables
     post 'import_tables/:id' => 'import_tables#merge'
 
@@ -35,6 +37,8 @@ Bbv4::Application.routes.draw do
     resources :reports do
       get :distribute, :on=>:member
     end
+    
+    
     resources :users
     resources :user_sessions
     match "login" => "user_sessions#new", :as => "login" 

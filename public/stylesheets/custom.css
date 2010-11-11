@@ -110,6 +110,35 @@
 
 
 
+#newsale_form #customer_auto, #sale_fob, #sale_notes{width:200px;}
+#newsale_form #sale_amount, #sale_price{width:90px;}
+
+#sale_amount_container{float:left;}
+#sale_price_container{float:right;}
+#sale_notes{height:100px;}
+
+
+
+
+
+
+/* WORKSHEET */
+
+#worksheet_container{margin:auto;width:576px;height:720px;background-image:url('../images/Worksheet_template.png');}
+#worksheet_content{position:relative;color:black;}
+
+#worksheet_content h2{color:black;size:20px;}
+
+.wk_id{position:absolute;top:-14px;left:125px;}
+.wk_user{position:absolute;top:-14px;left:385px;}
+.wk_customer{position:absolute;top:60px;left:10px;}
+.wk_fob{position:absolute;top:60px;left:300px;}
+.wk_amount{position:absolute;top:230px;left:75px;}
+.wk_ratgrade{position:absolute;top:230px;left:185px;}
+.wk_warehouse{position:absolute;top:230px;left:310px;}
+.wk_price{position:absolute;top:230px;left:475px;}
+.wk_notes{position:absolute;top:335px;left:10px;}
+#actions{position:absolute;top:750px;}
 }
 
 
