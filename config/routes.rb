@@ -11,6 +11,7 @@ Bbv4::Application.routes.draw do
     
     resources :sales do
       get :autocomplete_customer_name, :on => :collection
+      
     end
 
     resources :assignments
@@ -32,6 +33,7 @@ Bbv4::Application.routes.draw do
 
     resources :boards do
       get :rat_sales, :on => :member
+      get :print_sales, :on => :member
     end
 
     resources :reports do

@@ -124,10 +124,10 @@
 
 /* WORKSHEET */
 
-#worksheet_container{margin:auto;width:576px;height:720px;background-image:url('../images/Worksheet_template.png');}
-#worksheet_content{position:relative;color:black;}
+.worksheet_container{page-break-before: always;margin:auto;width:576px;height:720px;background-image:url('../images/Worksheet_template.png');}
+.worksheet_content{position:relative;color:black;}
 
-#worksheet_content h2{color:black;size:20px;}
+.worksheet_content h2{color:black;size:20px;}
 
 .wk_id{position:absolute;top:-14px;left:125px;}
 .wk_user{position:absolute;top:-14px;left:385px;}

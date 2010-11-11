@@ -99,4 +99,18 @@ class BoardsController < ApplicationController
     
   end
   
+  
+  def print_sales
+    @board = Board.find(params[:id])
+    @sales=@board.sales
+    
+    
+    respond_to do |format|
+      format.html {render :layout => 'worksheet'}
+      format.xml  { render :xml => @sale }
+    end
+    
+  end
+  
+  
 end

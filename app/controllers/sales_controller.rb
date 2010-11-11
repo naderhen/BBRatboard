@@ -97,6 +97,8 @@ class SalesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
 
   
   
