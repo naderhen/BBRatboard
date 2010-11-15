@@ -10,7 +10,7 @@ gem 'rails3-jquery-autocomplete', '>= 0.2.2'
 gem "friendly_id"
 gem "authlogic"
 gem "pdfkit"
-#gem 'fastercsv'
+gem 'fastercsv'
 # Use unicorn as the web server
 # gem 'unicorn'
 
