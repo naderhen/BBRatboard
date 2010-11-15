@@ -46,6 +46,9 @@ GEM
       treetop (>= 1.4.5)
     mime-types (1.16)
     mysql2 (0.2.4)
+    paperclip (2.3.5)
+      activerecord
+      activesupport
     pdfkit (0.4.6)
     polyglot (0.3.1)
     rack (1.2.1)
@@ -82,6 +85,7 @@ DEPENDENCIES
   fastercsv
   friendly_id
   mysql2
+  paperclip
   pdfkit
   rails (= 3.0.0)
   rails3-jquery-autocomplete (>= 0.2.2)

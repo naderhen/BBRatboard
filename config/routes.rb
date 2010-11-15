@@ -1,4 +1,6 @@
 Bbv4::Application.routes.draw do
+  resources :attachments
+
   resources :announcements
 
     resources :import_tables
