@@ -11,8 +11,6 @@
 			<td>Customer Name</td>
 			<td><%= @customer.name %></td>
 		</tr>
-
-		
 		<tr>
 			<td>Address 1</td>
 			<td><%= @customer.address1 %></td>
@@ -65,3 +63,39 @@
 		
 	</tbody>
 </table>
+
+
+
+<h1>Customer Attachments</h1>
+<table>
+  <tr>
+    <th>Attachment type</th>
+    <th>Customer</th>
+    <th>Attachment file name</th>
+    <th>Attachment file size</th>
+    <th>Attachment content type</th>
+    <th>Attachment updated at</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% for attachment in @customer.attachments %>
+  <tr>
+    <td><%= attachment.attachment_type %></td>
+    <td><%= attachment.customer_id %></td>
+    <td><%= attachment.attachment_file_name %></td>
+    <td><%= attachment.attachment_file_size %></td>
+    <td><%= attachment.attachment_content_type %></td>
+    <td><%= attachment.attachment_updated_at %></td>
+    <td><%= link_to 'Show', attachment %></td>
+    <td><%= link_to 'Edit', edit_attachment_path(attachment) %></td>
+    <td><%= link_to 'Destroy', attachment, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to "Download", attachment.attachment.url%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Attachment', new_customer_attachment_path(@customer) %>

@@ -20,7 +20,9 @@ Bbv4::Application.routes.draw do
 
     resources :roles
 
-    resources :customers
+    resources :customers do
+      resources :attachments
+    end
     
 
 

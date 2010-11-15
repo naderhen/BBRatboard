@@ -24,7 +24,8 @@ class AttachmentsController < ApplicationController
   # GET /attachments/new
   # GET /attachments/new.xml
   def new
-    @attachment = Attachment.new
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,12 +41,13 @@ class AttachmentsController < ApplicationController
   # POST /attachments
   # POST /attachments.xml
   def create
-    @attachment = Attachment.new(params[:attachment])
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.build(params[:attachment])
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to(@attachment, :notice => 'Attachment was successfully created.') }
-        format.xml  { render :xml => @attachment, :status => :created, :location => @attachment }
+        format.html { redirect_to(@customer, :notice => 'Attachment was successfully created.') }
+        format.xml  { render :xml => @customer, :status => :created, :location => @attachment }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @attachment.errors, :status => :unprocessable_entity }
