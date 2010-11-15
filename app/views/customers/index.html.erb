@@ -5,21 +5,26 @@
 
 
 
-<table class="stylized">
-  <tr>
-    <th>Name</th>
-  </tr>
+<%= form_tag customers_path, :method => 'get', :id => "customers_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+  </p>
+	<p>
+	<%= customers_per_page_select @customers %> Per Page
+	</p>
 
-<% @customers.each do |customer| %>
-  <tr>
-    <td><%=h customer.name %></td>
-    <td><%= link_to 'Show', customer %></td>
-    <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
-    <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+	<%= submit_tag "Go", :name => nil %>
+  <div id="customers"><%= render 'customers' %></div>
 <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New customer', new_customer_path %>
+
+<p><%= link_to "New Customer", new_customer_path %></p>
+
+
+
+
+
+
+
+

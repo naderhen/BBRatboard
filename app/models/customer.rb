@@ -3,8 +3,16 @@ class Customer < ActiveRecord::Base
   
   validates_presence_of :name, :message => "can't be blank"
   
-  def self.search(query)
-      where("name like ?", "%#{query}%")
+  def self.search(search)
+    if search
+      where('name LIKE ?', "%#{search}%")
+    else
+      scoped
+    end
+  end
+  
+  def self.per_page
+    10
   end
   
   

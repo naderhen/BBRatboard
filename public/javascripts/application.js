@@ -38,7 +38,6 @@ $(function() {
 			$(this).addClass("current");
 		});
 		
-
 		
 		
 		

@@ -1,10 +1,13 @@
 class CustomersController < ApplicationController
   before_filter :require_user
   before_filter :require_staff
+  
+  helper_method :sort_column, :sort_direction
+  
   # GET /customers
   # GET /customers.xml
   def index
-    @customers = Customer.all
+    @customers = Customer.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => customers_per_page, :page => params[:page])
 
     respond_to do |format|
       format.html
@@ -83,4 +86,23 @@ class CustomersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def sort_column
+    Customer.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
+  
+  
+  private 
+    def customers_per_page 
+      if params[:per_page] 
+        session[:customers_per_page] = params[:per_page] 
+      end 
+      session[:customers_per_page] 
+    end
+  
 end
