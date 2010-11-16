@@ -47,37 +47,30 @@
 
 
 
+<div id="customer_tabs">
+	<ul>
+		<li><a class="corner-tl" href="#customer_order_history">Orders</a></li>
+		<li><a class="" href="#customer_call_history">Call Log</a></li>
+		<li><a class="corner-tr" href="#customer_attachments">Attachments</a></li>
+	</ul>
+	
+	<div id="customer_order_history">
+		<%= render "customers/order_history"%>
+	</div><!-- customer_order_history -->
+	
+	
+	<div id="customer_call_history">
+		<%= render "customers/call_history"%>
+	</div><!-- customer_call_history -->
+	
+	
+	<div id="customer_attachments">
+		<%= render "customers/customer_attachments"%>
+	</div><!-- customer_attachments -->
+</div>
 
 
 
-
-<h1>Call History</h1>
-
-<table class="full stylized">
-  <tr>
-    <th>User</th>
-    <th>Customer</th>
-    <th>Call time</th>
-    <th>Notes</th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<%for call in @customer.calls %>
-  <tr>
-    <td><%= call.user.login %></td>
-    <td><%= call.customer.name %></td>
-    <td><%= call.call_time %></td>
-    <td><%= call.notes %></td>
-    <td><%= link_to 'Edit', edit_customer_call_path(@customer,call) %></td>
-    <td><%= link_to 'Destroy', [@customer, call], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Call', new_customer_call_path(@customer) %>
 
 
 

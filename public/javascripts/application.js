@@ -26,7 +26,7 @@ $(function() {
 		$(".hide_me").hide()
 		$(".datepicker").datepicker({ dateFormat: 'yy-mm-dd' });
 		
-		$("#tabs, #tabs2").tabs();
+		$("#tabs, #customer_tabs, #tabs2").tabs();
 		$('.rat_date').live('focus', function() {
 		  $(this).datepicker({dateFormat: 'yy-mm-dd'});
 		});
