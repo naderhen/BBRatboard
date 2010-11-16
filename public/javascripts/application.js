@@ -57,11 +57,12 @@ $(function() {
 			$("#sale_ratgrade_name").val(ratgrade_name);
 			$("#sale_warehouse_id").val(warehouse_id);
 			
-			my_row.siblings().fadeTo('slow', .1);
+			$(".ratgrade_row").not(my_row).fadeTo('slow', .1);
+			me.text("Cancel");
 			
 			return false;
 		}, function() {
-			
+			var me = $(this);
 			$("#newsale_placeholder").show()
 			$("#newsale_form").hide();
 		  	$(".ratgrade_row").fadeTo('fast', 1);
@@ -69,6 +70,7 @@ $(function() {
 			$("#sale_ratgrade_id").val("");
 			$("#sale_ratgrade_name").val("");
 			$("#sale_warehouse_id").val("");
+			me.text("Sell");
 		});
 		
 		
