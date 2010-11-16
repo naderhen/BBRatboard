@@ -1,27 +1,29 @@
 <%= form_for @user do |form| %>  
 
-<ol class="formList">  
-	<li>  
-	    <%= form.label :full_name, "Full Name" %>  
+<p>
+	    <%= form.label :full_name, "Full Name" %>  <br />
 	    <%= form.text_field :full_name %>  
-	</li>	
-	
-  <li>  
-    <%= form.label :login, "Username" %>  
+</p>
+
+<p>
+    <%= form.label :login, "Username" %>   <br />
     <%= form.text_field :login %>  
-  </li>  
-  <li>  
-    <%= form.label :email, "Email" %>  
+</p>
+
+<p>
+    <%= form.label :email, "Email" %>   <br />
     <%= form.text_field :email %>  
-  </li>  
-  <li>  
-    <%= form.label :password, "Password" %>  
+</p>
+
+<p>
+    <%= form.label :password, "Password" %>   <br />
     <%= form.password_field :password %>  
-  </li>  
-  <li>  
-    <%= form.label :password_confirmation, "Password confirmation" %>  
+</p>
+
+<p>
+    <%= form.label :password_confirmation, "Password confirmation" %>   <br />
     <%= form.password_field :password_confirmation %>  
-  </li>  
+</p>
 
 <% for role in Role.all %>  
     <div>  
@@ -31,8 +33,7 @@
 <% end %>
 
 
-  <li>  
-    <%= form.submit "Submit" %>  
-  </li>  
-</ol>  
+
+<input type="submit" class="btn btn-green big" value="Submit">
+
 <% end %>
