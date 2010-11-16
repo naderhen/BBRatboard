@@ -13,8 +13,9 @@ class AttachmentsController < ApplicationController
   # GET /attachments/1
   # GET /attachments/1.xml
   def show
-    @attachment = Attachment.find(params[:id])
-
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.find(params[:id])
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @attachment }
@@ -35,7 +36,8 @@ class AttachmentsController < ApplicationController
 
   # GET /attachments/1/edit
   def edit
-    @attachment = Attachment.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.find(params[:id])
   end
 
   # POST /attachments
@@ -58,11 +60,12 @@ class AttachmentsController < ApplicationController
   # PUT /attachments/1
   # PUT /attachments/1.xml
   def update
-    @attachment = Attachment.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.find(params[:id])
 
     respond_to do |format|
       if @attachment.update_attributes(params[:attachment])
-        format.html { redirect_to(@attachment, :notice => 'Attachment was successfully updated.') }
+        format.html { redirect_to(@customer, :notice => 'Attachment was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -74,11 +77,13 @@ class AttachmentsController < ApplicationController
   # DELETE /attachments/1
   # DELETE /attachments/1.xml
   def destroy
-    @attachment = Attachment.find(params[:id])
+    @customer = Customer.find(params[:customer_id])
+    @attachment = @customer.attachments.find(params[:id])
+    
     @attachment.destroy
 
     respond_to do |format|
-      format.html { redirect_to(attachments_url) }
+      format.html { redirect_to(@customer) }
       format.xml  { head :ok }
     end
   end

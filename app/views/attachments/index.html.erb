@@ -2,12 +2,12 @@
 
 <table>
   <tr>
-    <th>Attachment type</th>
+    <th>Type</th>
     <th>Customer</th>
-    <th>Attachment file name</th>
-    <th>Attachment file size</th>
-    <th>Attachment content type</th>
-    <th>Attachment updated at</th>
+    <th>Filename</th>
+    <th>Size</th>
+    <th>Ext.</th>
+    <th>Uploaded at</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,7 +16,7 @@
 <% @attachments.each do |attachment| %>
   <tr>
     <td><%= attachment.attachment_type %></td>
-    <td><%= attachment.customer_id %></td>
+    <td><%= attachment.customer.name %></td>
     <td><%= attachment.attachment_file_name %></td>
     <td><%= attachment.attachment_file_size %></td>
     <td><%= attachment.attachment_content_type %></td>
