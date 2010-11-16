@@ -97,6 +97,26 @@ class CustomersController < ApplicationController
   
   
   
+  def customer_import
+        file = params[:customer_import][:file]
+          FasterCSV.foreach(file) do |row|
+            if Customer.find_by_name(row[0])
+              @customer=Customer.find_by_name(row[0])
+              @customer.update_attributes(:address1=>row[1], :address2=>row[2], :city=>row[3], :state=>row[4], :zip=>row[5], :country=>row[6], :email=>row[7], :phone=>row[8], :fax=>row[9], :client_type=>row[10], :euler=>row[11], :contact=>row[12])   
+            else 
+              Customer.create(:name=>row[0], :address1=>row[1], :address2=>row[2], :city=>row[3], :state=>row[4], :zip=>row[5], :country=>row[6], :email=>row[7], :phone=>row[8], :fax=>row[9], :client_type=>row[10], :euler=>row[11], :contact=>row[12], :created_at=>Time.now,:updated_at=>Time.now)
+            end
+          end
+        flash[:notice] = "Successfully Updated some Customer(s)."
+        redirect_to :action => :index
+      rescue => exception
+        # If an exception is thrown, the transaction rolls back and we end up in this rescue block
+        error = ERB::Util.h(exception.to_s) # get the error and HTML escape it
+        flash[:error] = "Error adding logs.  (some #{error}).  Please try again."
+        redirect_to :action => :index
+  end
+  
+  
   private 
     def customers_per_page 
       if params[:per_page] 

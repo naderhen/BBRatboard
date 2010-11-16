@@ -12,7 +12,14 @@
   <tr>
     <td><%= link_to customer.name, customer %></td>
 	<td><%= customer.phone %></td>
-	<td><%= customer.client_type %></td>
+	<% if customer.client_type == "Customer"%>
+		<td><p class="client_type client_customer"><%= customer.client_type %></p></td>
+	<% elsif customer.client_type == "Inactive"%>
+		<td><p class="client_type client_inactive"><%= customer.client_type %></p></td>
+	<% elsif customer.client_type == "Credit Hold"%>
+		<td><p class="client_type client_credit_hold"><%= customer.client_type %></p></td>
+	<% end %>
+	
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

@@ -1,26 +1,39 @@
 <%= content_for :headline do %>
-<h1>Market Report &rarr; <span>New</span></h1>
+<h1>Client Card &rarr; <span>Overview</span></h1>
 <% end %>
 
+<div class="client_card">
+	<h1 class="client_name"><%= @customer.name %> - (<%= @customer.phone %>)</h1>
+	
+	<% if @customer.client_type == "Customer"%>
+		<p class="client_type client_customer"><%= @customer.client_type %></p>
+	<% elsif @customer.client_type == "Inactive"%>
+		<p class="client_type client_inactive"><%= @customer.client_type %></p>
+	<% elsif @customer.client_type == "Credit Hold"%>
+		<p class="client_type client_credit_hold"><%= @customer.client_type %></p>
+	<% end %>
+	
+	<div class="clearfix"></div>
+	
+	<h3>Contact: <span><%= @customer.contact %></span></h3>
+	<h4><%= @customer.address1 %></h4>
+	<h4><%= @customer.address2 %></h4>
 
-<h1><%= @customer.name %> - (<%= @customer.phone %>)</h1>
-<h3><%= @customer.contact %></h3>
-<h3><%= @customer.address1 %></h3>
-<h3><%= @customer.address2 %></h3>
-
-<h3><%= @customer.city %>,
-<%= @customer.state %>
-<%= @customer.zip %>
-<%= @customer.country %> </h3>
+	<h4><%= @customer.city %>,
+	<%= @customer.state %>
+	<%= @customer.zip %>
+	<%= @customer.country %> </h4>
 
 
-<p>Email: <%= @customer.email %></p>
+	<h5>Email: <span><%= @customer.email %></span></h5>
 
-<p>Fax: <%= @customer.fax %></p>
-<p><%= @customer.client_type %></p>
-<p>Euler Rating: <%= @customer.euler %></p>
+	<h5>Fax: <span><%= @customer.fax %></span></h5>
+	
+	
 
+	<h5>Euler Rating: <%= @customer.euler %></h5>
 
+</div><!-- client_card -->
 
 <% content_for(:shortcut_title) do %>
 	Attachments
@@ -38,7 +51,7 @@
 
 
 
-<h1>Listing calls</h1>
+<h1>Call History</h1>
 
 <table class="full stylized">
   <tr>
