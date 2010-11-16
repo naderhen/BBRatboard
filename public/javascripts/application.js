@@ -50,7 +50,8 @@ $(function() {
 			var warehouse_name = $(this).attr("data-warehouse_name");
 			var warehouse_id = $(this).attr("data-warehouse_id");
 			var board_id = $(this).attr("data-board_id");
-			
+			$("#newsale_placeholder").hide();
+			$("#newsale_form").fadeIn();
 			$("#rightmenu h3").text("Sale of "+ratgrade_name+" out of "+warehouse_name);
 			$("#sale_ratgrade_id").val(ratgrade_id);
 			$("#sale_ratgrade_name").val(ratgrade_name);
@@ -60,6 +61,9 @@ $(function() {
 			
 			return false;
 		}, function() {
+			
+			$("#newsale_placeholder").show()
+			$("#newsale_form").hide();
 		  	$(".ratgrade_row").fadeTo('fast', 1);
 			$("#rightmenu h3").text("Quick Sale");
 			$("#sale_ratgrade_id").val("");

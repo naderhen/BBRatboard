@@ -20,7 +20,8 @@
 
 	.trend_selector:hover{cursor:pointer;}
 	
-
+#newsale_form{display:none;height:435px;}
+#newsale_placeholder{height:435px;}
 
 	/*    REPORT CSS  */
 	#report_user_id{width:250px;}
