@@ -23,6 +23,11 @@
 #newsale_form{display:none;height:435px;}
 #newsale_placeholder{height:435px;}
 
+
+.availamt{color:green;font-weight:bold;}
+.negavail{color:red;font-weight:bold;}
+tr.footer{font-weight:bold;}
+
 	/*    REPORT CSS  */
 	#report_user_id{width:250px;}
 	.report_date_span label{margin-left:37px;}
@@ -147,7 +152,7 @@
 
 /* CUSTOMER SECTION */
 
-
+#upload_customer_existing{}
 #customers table{width:100%;}
 .client_type{padding:5px;width:100px;text-align:center;font-weight:bold;}
 .client_customer{background-color:#EAF7D9;border:1px solid #BBDF8D;}

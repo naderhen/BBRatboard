@@ -39,7 +39,7 @@ $(function() {
 		});
 		
 		
-		
+		$(".datatable").dataTable();
 		
 		
 		$('.sale_handle').toggle(function() {
@@ -58,7 +58,7 @@ $(function() {
 			$("#sale_warehouse_id").val(warehouse_id);
 			
 			$(".ratgrade_row").not(my_row).fadeTo('slow', .1);
-			me.text("Cancel");
+			me.find("span").addClass("icon-cancel");
 			
 			return false;
 		}, function() {
@@ -70,7 +70,8 @@ $(function() {
 			$("#sale_ratgrade_id").val("");
 			$("#sale_ratgrade_name").val("");
 			$("#sale_warehouse_id").val("");
-			me.text("Sell");
+			me.find("span").removeClass("icon-cancel");
+			me.find("span").addClass("icon-add");
 		});
 		
 		

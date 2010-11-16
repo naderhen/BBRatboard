@@ -2,7 +2,7 @@
 
 
 <%= form_for :upload, :html => { :multipart => true } do |f| -%>
-	<h1>VERY IMPORTANT: Click here if you are UPDATING the customers list </h1><%= f.check_box :customer_existing %>
+	<h1>VERY IMPORTANT: Click here if you are UPDATING the customers list <span><%= f.check_box :customer_existing %></span></h1>
   <%= f.file_field :csv %>
   <%= f.submit "Upload", :disable_with => 'Uploading...' %>
 <% end -%>
