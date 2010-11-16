@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :sales
   has_many :ratgrades, :through=>:sales
   has_many :announcements
-  
+  has_many :calls
   
   
 

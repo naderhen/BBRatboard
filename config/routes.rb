@@ -1,4 +1,6 @@
 Bbv4::Application.routes.draw do
+  resources :calls
+
   resources :attachments
 
   resources :announcements
@@ -22,6 +24,7 @@ Bbv4::Application.routes.draw do
 
     resources :customers do
       resources :attachments
+      resources :calls
     end
     
 

@@ -1,99 +1,70 @@
-<table class="stylized full">
-	<thead>
-		<tr>
-	    	<th>Attribute</th>
-			<th>Content</th>
-	  	</tr>
-	</thead>
-	
-	<tbody>
-		<tr>
-			<td>Customer Name</td>
-			<td><%= @customer.name %></td>
-		</tr>
-		<tr>
-			<td>Address 1</td>
-			<td><%= @customer.address1 %></td>
-		</tr>
-		<tr>
-			<td>Address 2</td>
-			<td><%= @customer.address2 %></td>
-		</tr>
-		<tr>
-			<td>City</td>
-			<td><%= @customer.city %></td>
-		</tr>
-		<tr>
-			<td>State</td>
-			<td><%= @customer.state %></td>
-		</tr>
-		<tr>
-			<td>Zip</td>
-			<td><%= @customer.zip %></td>
-		</tr>
-		<tr>
-			<td>Country</td>
-			<td><%= @customer.country %></td>
-		</tr>
-		<tr>
-			<td>Email</td>
-			<td><%= @customer.email %></td>
-		</tr>
-		<tr>
-			<td>Phone</td>
-			<td><%= @customer.phone %></td>
-		</tr>
-		<tr>
-			<td>Fax</td>
-			<td><%= @customer.fax %></td>
-		</tr>
-		<tr>
-			<td>Client Type</td>
-			<td><%= @customer.client_type %></td>
-		</tr>
-		<tr>
-			<td>Euler</td>
-			<td><%= @customer.euler %></td>
-		</tr>
-		<tr>
-			<td>Contact</td>
-			<td><%= @customer.contact %></td>
-		</tr>
+<%= content_for :headline do %>
+<h1>Market Report &rarr; <span>New</span></h1>
+<% end %>
 
-		
-	</tbody>
-</table>
+
+<h1><%= @customer.name %> - (<%= @customer.phone %>)</h1>
+<h3><%= @customer.contact %></h3>
+<h3><%= @customer.address1 %></h3>
+<h3><%= @customer.address2 %></h3>
+
+<h3><%= @customer.city %>,
+<%= @customer.state %>
+<%= @customer.zip %>
+<%= @customer.country %> </h3>
+
+
+<p>Email: <%= @customer.email %></p>
+
+<p>Fax: <%= @customer.fax %></p>
+<p><%= @customer.client_type %></p>
+<p>Euler Rating: <%= @customer.euler %></p>
 
 
 
-<h1>Customer Attachments</h1>
-<table>
+<% content_for(:shortcut_title) do %>
+	Attachments
+<% end %>
+
+<% content_for(:shortcut_box) do %>
+	<%= render 'customers/attachments'%>
+<% end %>
+
+
+
+
+
+
+
+
+
+<h1>Listing calls</h1>
+
+<table class="full stylized">
   <tr>
-    <th>Type</th>
-    <th>Filename</th>
-    <th>Size</th>
-    <th>Ext.</th>
-    <th>Created At</th>
-    <th></th>
+    <th>User</th>
+    <th>Customer</th>
+    <th>Call time</th>
+    <th>Notes</th>
     <th></th>
     <th></th>
   </tr>
 
-<% for attachment in @customer.attachments %>
+<%for call in @customer.calls %>
   <tr>
-    <td><%= attachment.attachment_type %></td>
-    <td><%= attachment.attachment_file_name %></td>
-    <td><%= attachment.attachment_file_size %></td>
-    <td><%= attachment.attachment_content_type %></td>
-    <td><%= attachment.attachment_updated_at %></td>
-    <td><%= link_to "Download", attachment.attachment.url%></td>
-    <td><%= link_to 'Edit', edit_customer_attachment_path(@customer, attachment) %></td>
-    <td><%= link_to 'Destroy', [@customer, attachment], :confirm => 'Are you sure?', :method => :delete %></td>
-	
+    <td><%= call.user.login %></td>
+    <td><%= call.customer.name %></td>
+    <td><%= call.call_time %></td>
+    <td><%= call.notes %></td>
+    <td><%= link_to 'Edit', edit_customer_call_path(@customer,call) %></td>
+    <td><%= link_to 'Destroy', [@customer, call], :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Attachment', new_customer_attachment_path(@customer) %>
+<%= link_to 'New Call', new_customer_call_path(@customer) %>
+
+
+

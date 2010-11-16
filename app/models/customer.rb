@@ -1,7 +1,7 @@
 class Customer < ActiveRecord::Base
   has_many :sales
   has_many :attachments
-  
+  has_many :calls
   validates_presence_of :name, :message => "can't be blank"
   
   def self.search(search)
