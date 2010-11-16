@@ -7,16 +7,17 @@
 
 
 
-
+<fieldset>
+	<legend>Search Form</legend>
+</fieldset>
 
 
 <%= form_tag customers_path, :method => 'get', :id => "customers_search" do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-  </p>
-	<p>
+  
+    <%= text_field_tag :search, params[:search], :placeholder=>"Search by Company Name" %>
+
 	<%= customers_per_page_select @customers %> Per Page
-	</p>
+
 
 	<%= submit_tag "Go", :name => nil %>
   <div id="customers"><%= render 'customers' %></div>

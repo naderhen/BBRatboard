@@ -152,7 +152,7 @@ tr.footer{font-weight:bold;}
 
 /* CUSTOMER SECTION */
 
-#upload_customer_existing{}
+#search{width:400px;}
 #customers table{width:100%;}
 .client_type{padding:5px;width:100px;text-align:center;font-weight:bold;}
 .client_customer{background-color:#EAF7D9;border:1px solid #BBDF8D;}
