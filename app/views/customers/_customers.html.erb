@@ -18,6 +18,8 @@
 		<td><p class="client_type client_inactive"><%= customer.client_type %></p></td>
 	<% elsif customer.client_type == "Credit Hold"%>
 		<td><p class="client_type client_credit_hold"><%= customer.client_type %></p></td>
+	<% else %>
+		<td></td>
 	<% end %>
 	
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
