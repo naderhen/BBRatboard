@@ -39,7 +39,6 @@ $(function() {
 		});
 		
 		
-		$(".datatable").dataTable();
 		
 		
 		$('.sale_handle').toggle(function() {

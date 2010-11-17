@@ -2,7 +2,7 @@
 
 
 
-<%= link_to "Print All", print_sales_board_path%>
+<%= link_to "Print All", print_sales_board_path(:format=>"pdf")%>
 
 <% @sales.group_by(&:user).each do |user,sales| %>
 	<h2><%=user.full_name %></h2>

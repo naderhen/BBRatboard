@@ -12,7 +12,8 @@
 	this file, and modify it to your liking. 
 
 */
-
+#page{height:100%;}
+#bottom{position:relative;margin-top:100px;}
 
 	.flash{margin-top:10px;}
 
