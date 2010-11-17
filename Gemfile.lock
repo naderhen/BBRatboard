@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/fesplugas/typus.git
+  revision: aee6da5ec983336ba10cd3f601635d24ff8e0171
+  specs:
+    typus (3.0.3)
+      will_paginate (~> 3.0.pre2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -89,4 +96,5 @@ DEPENDENCIES
   pdfkit
   rails (= 3.0.0)
   rails3-jquery-autocomplete (>= 0.2.2)
+  typus!
   will_paginate (= 3.0.pre2)

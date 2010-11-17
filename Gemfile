@@ -13,6 +13,7 @@ gem "pdfkit"
 gem 'fastercsv'
 gem 'will_paginate', '3.0.pre2'
 gem 'paperclip'
+gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
 # Use unicorn as the web server
 # gem 'unicorn'
 
