@@ -40,7 +40,7 @@
 				<% end %>
 				<% if current_user && current_user.staff? %>
 					<small>You are an <a href="#" class="high"> Admin!</a></small><br />
-					<small>You're Single Access Token is:  <%= Time.now %><a href="#" class="high"><%= current_user.single_access_token %> </a></small>
+					<small>You're Single Access Token is: <a href="#" class="high"><%= current_user.single_access_token %> </a></small>
 					
 				<% end %>
 			</div>
