@@ -682,6 +682,7 @@
 		padding-left: 32px;
 		border-top:1px solid #F8ACAC;
 		border-bottom:1px solid #F8ACAC;
+		margin-top:18px;
 		background:#FFD1D1 url("../images/exclamation.png") no-repeat 8px 50%;
 	}
 	.box-error-msg{
