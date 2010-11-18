@@ -168,8 +168,8 @@ tr.footer{font-weight:bold;}
 	background-color:#E8F6FF;
 }
 
-.client_card .client_name{width:565px;float:left;}
-.client_card .client_type{float:right;margin-top:20px;margin-right:25px;}
+.client_card .client_name{width:565px;}
+.client_card .client_type{margin-top:20px;margin-right:25px;}
 
 }
 

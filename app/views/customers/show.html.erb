@@ -3,71 +3,57 @@
 <% end %>
 
 <div class="client_card">
-	<h1 class="client_name"><%= @customer.name %> - (<%= @customer.phone %>)</h1>
-	
-	<% if @customer.client_type == "Customer"%>
-		<p class="client_type client_customer"><%= @customer.client_type %></p>
-	<% elsif @customer.client_type == "Inactive"%>
-		<p class="client_type client_inactive"><%= @customer.client_type %></p>
-	<% elsif @customer.client_type == "Credit Hold"%>
-		<p class="client_type client_credit_hold"><%= @customer.client_type %></p>
-	<% end %>
-	
-	<div class="clearfix"></div>
-	
-	<h3>Contact: <span><%= @customer.contact %></span></h3>
-	<h4><%= @customer.address1 %></h4>
-	<h4><%= @customer.address2 %></h4>
-
-	<h4><%= @customer.city %>,
-	<%= @customer.state %>
-	<%= @customer.zip %>
-	<%= @customer.country %> </h4>
-
-
-	<h5>Email: <span><%= @customer.email %></span></h5>
-
-	<h5>Fax: <span><%= @customer.fax %></span></h5>
-	
+	<h1 class="client_name"><%= @customer.name %></h1>
 	
 
-	<h5>Euler Rating: <%= @customer.euler %></h5>
 
 </div><!-- client_card -->
 
 <% content_for(:shortcut_title) do %>
-	Attachments
+	Contact Information
 <% end %>
 
 <% content_for(:shortcut_box) do %>
-	<%= render 'customers/attachments'%>
+	<%= render 'customers/contact_info'%>
 <% end %>
 
 
 
 
 
-<div id="customer_tabs">
-	<ul>
-		<li><a class="corner-tl" href="#customer_order_history">Orders</a></li>
-		<li><a class="" href="#customer_call_history">Call Log</a></li>
-		<li><a class="corner-tr" href="#customer_attachments">Attachments</a></li>
-	</ul>
-	
+
+	<fieldset>
+		<legend>Order History</legend>
+	</fieldset>
 	<div id="customer_order_history">
 		<%= render "customers/order_history"%>
 	</div><!-- customer_order_history -->
+	<br />
+	<br />
+	<br />
 	
 	
+	
+	<fieldset>
+		<legend>Call History</legend>
+	</fieldset>	
 	<div id="customer_call_history">
 		<%= render "customers/call_history"%>
 	</div><!-- customer_call_history -->
+	<br />
+	<br />
+	<br />
 	
 	
+	
+	
+	<fieldset>
+		<legend>Attachments</legend>
+	</fieldset>
 	<div id="customer_attachments">
 		<%= render "customers/customer_attachments"%>
 	</div><!-- customer_attachments -->
-</div>
+
 
 
 
