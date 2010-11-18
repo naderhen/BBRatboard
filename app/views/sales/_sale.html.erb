@@ -10,7 +10,7 @@
 		<h2 class="wk_amount"><%= @sale.amount %></h2>
 		<h2 class="wk_ratgrade"><%= @sale.ratgrade.name %></h2>
 		<h2 class="wk_warehouse"><%= @sale.ratgrade.warehouse.name %></h2>
-		<h2 class="wk_price"><%= @sale.price %></h2>
+		<h2 class="wk_price"><%= number_to_currency(@sale.price) %></h2>
 
 
 		<p class="wk_notes"><%= @sale.notes %></p>
