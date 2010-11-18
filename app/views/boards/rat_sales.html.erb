@@ -33,7 +33,7 @@
 		<td>
 			<%= sale.price%>
 		</td>
-		<td><%= link_to 'PDF', sales_path(sale, :format=>"pdf") %></td>
+		<td><%= link_to 'PDF', sale_path(:format=>"pdf")%></td>
 	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
 	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
