@@ -21,8 +21,7 @@
 
 	.trend_selector:hover{cursor:pointer;}
 	
-#newsale_form{display:none;height:435px;}
-#newsale_placeholder{height:435px;}
+
 
 
 .availamt{color:green;font-weight:bold;}
@@ -116,12 +115,15 @@ tr.footer{font-weight:bold;}
 
 
 
-
+	#newsale_form{display:none;height:485px;}
+	#newsale_placeholder{height:485px;}
 #newsale_form #customer_auto, #sale_fob, #sale_notes{width:200px;}
-#newsale_form #sale_amount, #sale_price{width:90px;}
+#newsale_form #sale_amount, #sale_price, #sale_size_pref, #sale_cotefr{width:90px;}
 
 #sale_amount_container{float:left;}
 #sale_price_container{float:right;}
+#sale_size_pref_container{float:left;}
+#sale_cotefr_container{float:right;}
 #sale_notes{height:100px;}
 
 
