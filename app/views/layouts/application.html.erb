@@ -124,6 +124,20 @@
 						<div class="flash box box-success">
 							<%= flash[:notice] %>	
 						</div>
+						
+						
+					<% end %>
+					
+					
+					
+					<% if flash[:alert] %>
+						<div class="box box-error">
+							<%= flash[:alert] %>
+						</div>
+						<div class="box box-error-msg">
+							<p>You were missing one or more fields in your form submission. Please try again.</p>	
+						</div>
+						
 					<% end %>
 					
 					<%= yield %>
