@@ -61,10 +61,10 @@ class SalesController < ApplicationController
     end  
     respond_to do |format|
       if @sale.save
-        format.html { redirect_to root_url, :notice => 'Sale was successfully created.' }
+        format.html { redirect_to root_url, :notice => 'Sale was successfully updated.' }
         format.xml  { render :xml => @sale, :status => :created, :location => @sale }
       else
-        format.html { redirect_to root_url, :alert=>"Sale not entered correctly!"}
+        format.html { redirect_to root_url }
         format.xml  { render :xml => @sale.errors, :status => :unprocessable_entity }
       end
     end

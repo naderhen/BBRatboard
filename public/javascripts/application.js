@@ -74,7 +74,18 @@ $(function() {
 		});
 		
 		
-		
+		//PUSHER STUFF //
+
+			var pusher = new Pusher(pusher_key, pusher_channel);
+
+		  pusher.bind('create', function(sale) {
+
+
+		    alert("Jello");
+
+
+
+		  });
 
 
 		

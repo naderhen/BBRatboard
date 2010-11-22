@@ -1,4 +1,6 @@
 Bbv4::Application.routes.draw do
+  get "flashboard/index"
+
   resources :calls
 
   resources :attachments
@@ -55,6 +57,7 @@ Bbv4::Application.routes.draw do
     match "register" => "users#new", :as => "register" 
     match "logout" => "user_sessions#destroy", :as => "logout"  
     match "dashboard" => "dashboard#index", :as => "dashboard"   
+    match "flashboard" => "flashboard#index", :as => "flashboard"   
     
     
     

@@ -1,0 +1,19 @@
+<% @salesreps.each do |salesrep|%>
+	<div id="<%=salesrep.login%>-sales" class="flash_column">
+		<h1><%= salesrep.full_name%></h1>
+		
+		<ul class="user_sales" id="<%=salesrep.login%>-sales">
+			<% for sale in salesrep.sales do %>
+				<li>
+					<h2><%= sale.customer.name %></h2>
+					
+					<h3><%= sale.amount%> <span>pieces of</span></h3> 
+					<h3 class="ratgrade_name"><%= sale.ratgrade.name %></h3>
+
+				</li>
+			<% end %>
+			
+		</ul>
+		
+	</div><!-- user_column -->
+<% end %>
