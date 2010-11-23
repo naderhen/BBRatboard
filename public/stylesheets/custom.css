@@ -147,6 +147,13 @@ tr.footer{font-weight:bold;}
 .wk_warehouse{position:absolute;top:230px;left:310px;}
 .wk_price{position:absolute;top:230px;left:465px;}
 .wk_notes{position:absolute;top:335px;left:10px;}
+.wk_size_pref_label{position:absolute;top:275px;left:116px; font-size:15px;}
+.wk_size_pref{position:absolute;top:275px;left:190px;font-size:15px;}
+.wk_cft_label{position:absolute;top:275px;left:380px; font-size:15px;}
+.wk_cft{position:absolute;top:275px;left:455px;font-size:15px;}
+
+
+
 #actions{position:absolute;top:750px;}
 
 
