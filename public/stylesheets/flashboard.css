@@ -8,22 +8,30 @@ body{height:100%;margin:0;padding:0;background-color:black;}
 #flashboard_container{width:100%;background-color:black;height:100%;}
 .flash_column{width:25%;height:100%;
 	border-style: none;
+	float:left;
+	margin-right:0em;
+	padding:0em;
 }
 
 .flash_column h1{
 	color: #FFF;
-	font: bold 50px/41px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font: bold 5em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 	border-color: #f7566b;
 }
 
+
+.user_sales{
+	padding-left:0em;
+	padding-right:2em;
+}
 .user_sales li{
 	list-style-type: none;
 	color: #dbfcfe;
 	width: 100%;
-	margin-bottom: 10px;
+	margin-bottom: 0em;
 	border: 1px solid gray;
 	opacity: 1;
-	padding: 5px;
+	padding: 0em;
 }
 
 .user_sales li h2 {
@@ -36,11 +44,11 @@ body{height:100%;margin:0;padding:0;background-color:black;}
 	color: white;
 	text-align: left;
 	display: inline;
-	font: bold 25px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	font: bold 2em "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 }
 
 .user_sales li h3 span {
-	font-size: 11px;
-	margin-right: 10px;
-	margin-left: 10px;
+	font-size: .5em;
+	margin-right: 1em;
+	margin-left: 1em;
 }

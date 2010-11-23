@@ -2,7 +2,7 @@
 	<div id="<%=salesrep.login%>-sales" class="flash_column">
 		<h1><%= salesrep.full_name%></h1>
 		
-		<ul class="user_sales" id="<%=salesrep.login%>-sales">
+		<ul class="user_sales" id="<%=salesrep.login%>-sales-list">
 			<% for sale in salesrep.sales do %>
 				<li>
 					<h2><%= sale.customer.name %></h2>

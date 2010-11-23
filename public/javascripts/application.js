@@ -79,10 +79,14 @@ $(function() {
 			var pusher = new Pusher(pusher_key, pusher_channel);
 
 		  pusher.bind('create', function(sale) {
-
-
-		    alert("Jello");
-
+			var sale_amount = sale.amount;
+			var user_login = sale.user_login;
+			var customer = sale.customer;
+			var ratgrade = sale.ratgrade;
+			var user_list = $('#'+user_login+'-sales-list');
+		    
+			user_list.effect('highlight');
+			user_list.append('<li><h2>'+customer+'</h2><h3>'+sale_amount+'<span>pieces of</span></h3><h3 class="ratgrade_name">'+ratgrade+'</h3></li>');
 
 
 		  });
