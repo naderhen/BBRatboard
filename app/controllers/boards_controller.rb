@@ -107,7 +107,9 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales=@board.sales
     @sales.each do |sale|
+      
       sale.printed="true"
+      sale.save!
     end
     respond_to do |format|
       format.html {render :layout => 'worksheet'}
@@ -120,6 +122,7 @@ class BoardsController < ApplicationController
     @sales=@board.sales.unprinted
     @sales.each do |sale|
       sale.printed="true"
+      sale.save!
     end
     respond_to do |format|
       format.html {render :layout => 'worksheet'}
