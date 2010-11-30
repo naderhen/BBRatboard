@@ -3,10 +3,12 @@
 
 
 
-<a href="<%=print_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print All Invoices</a>
+<a id="print_sales_button" href="<%=print_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print All Invoices</a>
 
 
-<a href="<%=print_unprinted_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("page_white_go.png", :class=>"icon")%>Print Unprinted Invoices</a>
+<a id="print_unprinted_sales_button" href="<%=print_unprinted_sales_board_path(:format=>"pdf") %>" class="btn btn-special"><%= image_tag("error.png", :class=>"icon")%>Print Unprinted Invoices (<%= @unprinted %>)</a>
+
+<div class="clearfix"></div>
 
 <% @sales.group_by(&:user).each do |user,sales| %>
 	<h2><%=user.full_name %></h2>
@@ -21,6 +23,7 @@
 		<th>Actions</th>
 		<th>&nbsp; </th>
 		<th>&nbsp; </th>
+		<th>Printed?</th>
 	 </tr>
 
 
@@ -40,11 +43,11 @@
 		
 		<% if sale.printed? %>
 			<td>
-				PRINTED
+				<%= link_to image_tag("accept.png"), sale_path(sale, :format=>"pdf")%>
 			</td>
 		<% else %>
 			<td>
-				UNPRINTED
+				<%= link_to image_tag("error.png"), sale_path(sale, :format=>"pdf")%>
 			</td>
 		
 		<% end %>

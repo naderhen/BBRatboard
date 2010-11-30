@@ -156,7 +156,8 @@ tr.footer{font-weight:bold;}
 
 #actions{position:absolute;top:750px;}
 
-
+#print_sales_button{float:left;}
+#print_unprinted_sales_button{float:right;}
 
 
 

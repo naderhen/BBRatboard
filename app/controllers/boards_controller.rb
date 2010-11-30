@@ -94,7 +94,7 @@ class BoardsController < ApplicationController
   def rat_sales
     @board = Board.find(params[:id])
     @sales = @board.sales
-    
+    @unprinted = @sales.unprinted.size
     
 
     
