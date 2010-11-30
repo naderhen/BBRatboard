@@ -95,21 +95,36 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales = @board.sales
     
+    
 
     
   end
   
   
+  
+  
   def print_sales
     @board = Board.find(params[:id])
     @sales=@board.sales
-    
-    
+    @sales.each do |sale|
+      sale.printed="true"
+    end
     respond_to do |format|
       format.html {render :layout => 'worksheet'}
       format.xml  { render :xml => @sale }
     end
-    
+  end
+  
+  def print_unprinted_sales
+    @board = Board.find(params[:id])
+    @sales=@board.sales.unprinted
+    @sales.each do |sale|
+      sale.printed="true"
+    end
+    respond_to do |format|
+      format.html {render :layout => 'worksheet'}
+      format.xml  { render :xml => @sale }
+    end
   end
   
   

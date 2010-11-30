@@ -12,6 +12,10 @@ class Sale < ActiveRecord::Base
     validates_presence_of :customer, :on => :create, :message => "can't be blank"
     validates_presence_of :warehouse, :on => :create, :message => "can't be blank"
     validates_presence_of :board, :on => :create, :message => "can't be blank"
+    
+    
+    scope :printed, where("printed=?", true)
+    scope :unprinted, where("printed=?", false)
 
 
     protected
