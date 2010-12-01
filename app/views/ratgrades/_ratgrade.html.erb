@@ -1,7 +1,7 @@
 <tr class="ratgrade_row">
     <td><%= link_to ratgrade.name,new_ratgrade_sale_path(ratgrade)%>
 		<br />
-			(<%=h ratgrade.availdate.to_s(:short) %>)
+			(<%=h ratgrade.availdate.to_s(:short) if ratgrade.availdate %>)
 		<br />
 	</td>
 

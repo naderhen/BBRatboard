@@ -26,7 +26,7 @@
 			  <tr>
 			    <td><%= link_to ratgrade.name,{:controller=>"ratgrades", :action=>'show', :id=>ratgrade.id} %>
 					<br />
-						(<%=h ratgrade.availdate.to_s(:short) %>)
+						(<%=h ratgrade.availdate.to_s(:short) if ratgrade.availdate %>)
 					<br />
 				</td>
 
