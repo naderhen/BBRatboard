@@ -12,8 +12,10 @@
     <th>Board</th>
 	<th>Sales</th>
 	<th>&nbsp;</th>
+	<% if current_user.admin? %>
 	<th>&nbsp;</th>
 	<th>&nbsp;</th>
+	<% end %>
   </tr>
 
 <% @boards.each do |board| %>
@@ -21,8 +23,11 @@
     <td><%=h board.board_date.to_s(:long) %></td>
 	<td><%= board.sales.size %></td>
     <td><%= link_to 'Show', board %></td>
+
+	<% if current_user.admin?%>
     <td><%= link_to 'Edit', edit_board_path(board) %></td>
     <td><%= link_to 'Destroy', board, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
   </tr>
 <% end %>
 </table>
