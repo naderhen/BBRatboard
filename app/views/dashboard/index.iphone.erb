@@ -9,7 +9,7 @@
 	<% for warehouse in @ratboard.warehouses  do %>
 		<li class="sep"><%= warehouse.name%></li>
   		<% for ratgrade in warehouse.ratgrades do %>
-			<li class="arrow"><%= link_to ratgrade.name, new_ratgrade_sale_path(ratgrade) %> <small class="counter"><%= ratgrade.availableamt%> </small></li>
+			<li class="arrow"><%= link_to ratgrade.name, new_ratgrade_sale_path(ratgrade) %> <small class="counter"><%= number_with_precision(ratgrade.availableamt,:precision=> 0) %> </small></li>
 		<% end %>
 
 	<% end %>
