@@ -1,4 +1,4 @@
-
+<% if @ratboard %>
 <div id="home">
   <div class="toolbar">
     <h1>Current Inventory</h1>
@@ -15,3 +15,12 @@
 	<% end %>
   </ul>
 </div>
+<% else %>
+<div id="home">
+  <div class="toolbar">
+    <h1>No RATBOARD</h1>
+  </div>
+
+</div>
+
+<% end %>
