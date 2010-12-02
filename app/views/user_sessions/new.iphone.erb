@@ -7,17 +7,12 @@
 
 <%= form_for @user_session, :url=>{:action=>"create"}, :html => { :id => "loginform" } do |form| %>  
 <ul class="rounded">
-	<li><%= form.text_field :login, :html=>{ :id=>"username", :class=>"full", :name=>"username"}%></li>
+	<li><%= form.text_field :login, :placeholder=>"Username"%></li>
 		
-	<li><%= form.password_field :password, :html=>{ :id=>"password", :class=>"full", :name=>"password"}%></li>
-
-
-
-    <a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Submit</a>
-
-
+	<li><%= form.password_field :password, :placeholder=>"Password"%></li>
 
  </ul>
+<a style="margin:0 10px;color:rgba(0,0,0,.9)" href="#" class="submit whiteButton">Submit</a>
 <% end %>
 
 

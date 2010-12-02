@@ -40,7 +40,9 @@ class SalesController < ApplicationController
         @sale = Sale.new
       end
       
-    render :layout => !request.xhr?
+    respond_to do |format|
+      format.iphone { render :layout => false }
+    end
   end
   
 
@@ -63,6 +65,7 @@ class SalesController < ApplicationController
       if @sale.save
         format.html { redirect_to root_url, :notice => 'Sale was successfully updated.' }
         format.xml  { render :xml => @sale, :status => :created, :location => @sale }
+        format.iphone {redirect_to root_url}
       else
         format.html { redirect_to root_url }
         format.xml  { render :xml => @sale.errors, :status => :unprocessable_entity }
