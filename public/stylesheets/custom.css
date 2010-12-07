@@ -31,7 +31,7 @@ tr.footer{font-weight:bold;}
 	/*    REPORT CSS  */
 	#report_user_id{width:250px;}
 	.report_date_span label{margin-left:37px;}
-	#report_container{border:1px solid black;background-color:white;position:relative;margin:auto;width:850px;padding:25px;}
+	#report_container{background-color:white;position:relative;margin:auto;width:960px;padding:25px;}
 	#report_header{}
 	#report_header img{float:left;}
 	#report_links{position:relative;float:right;background-image:url('../images/report_links_bg.png');width:320px;height:117px;}
@@ -59,7 +59,7 @@ tr.footer{font-weight:bold;}
 	
 	#report_subline h1 span{
 		font-size: 14px;
-		margin-left: 44px;
+		margin-left: 155px;
 		font-variant: normal;
 		letter-spacing: 0;
 		word-spacing: 1px;
@@ -80,7 +80,7 @@ tr.footer{font-weight:bold;}
 	}
 
 	.category_block{float:left;margin-bottom:30px;margin-top:15px;}
-	.category_block:nth-child(odd){margin-right:40px;}
+	.category_block:nth-child(odd){margin-right:149px;}
 	.category_block h2{
 		font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
 		color: #006da7;
@@ -115,7 +115,7 @@ tr.footer{font-weight:bold;}
 
 
 
-	#newsale_form{display:none;height:485px;}
+	#newsale_form{display:none;height:497px;}
 	#newsale_placeholder{height:485px;}
 #newsale_form #customer_auto, #sale_fob, #sale_notes{width:200px;}
 #newsale_form #sale_amount, #sale_price, #sale_size_pref, #sale_cotefr{width:90px;}

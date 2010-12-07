@@ -38,7 +38,9 @@ $(function() {
 			$(this).addClass("current");
 		});
 		
-		
+		$('input[value="1"]').parent().prev("td").find("#trend_up").addClass("current");
+		$('input[value="0"]').parent().prev("td").find("#trend_static").addClass("current");
+		$('input[value="-1"]').parent().prev("td").find("#trend_down").addClass("current");
 		
 		
 		$('.sale_handle').toggle(function() {
