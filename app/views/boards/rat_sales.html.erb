@@ -12,7 +12,7 @@
 <div class="clearfix"></div>
 
 <% @sales.group_by(&:user).each do |user,sales| %>
-	<h2><%=user.full_name %></h2>
+	<h2><%=user.full_name %> - <span> <%= sales.size%> Orders</span></h2>
 	<table class="stylized">
   	<tr>
 	    <th>Amount</th>
