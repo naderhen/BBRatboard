@@ -34,7 +34,9 @@
 	<tr>
     	<td><%=h sale.amount %></td>
 	    <td><%=h sale.ratgrade.name %></td>
-	    <td><%=h sale.user.full_name %></td>
+	    <td><%=h sale.user.full_name %>
+			<span>(<%= sale.created_at.strftime('%I:%M %p') %> )</span>
+		</td>
 	    <td><%=h sale.customer.name %></td>
 	    <td><%=h sale.fob %></td>
 		<td>

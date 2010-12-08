@@ -156,28 +156,28 @@
 				
 				
 				<% if content_for?(:shortcut_title)%>
-				<!-- Right column/section -->
-				<aside class="column width2">
-					<div id="rightmenu">
-						<header>
-							<h3><%= yield :shortcut_title%></h3>
-						</header>
-						<dl class="first">
-							<%= yield :shortcut_box %>
-						</dl>
-					</div>
-					<div class="content-box">
-						<header>
-							<h3><%= yield :quick_title%></h3>
-						</header>
-						<section>
+					<!-- Right column/section -->
+					<aside class="column width2">
+						<div id="rightmenu">
+							<header>
+								<h3><%= yield :shortcut_title%></h3>
+							</header>
+							<dl class="first">
+								<%= yield :shortcut_box %>
+							</dl>
+						</div>
+						<div class="content-box">
+							<header>
+								<h3><%= yield :quick_title%></h3>
+							</header>
+							<section>
 							
-								<%= yield :quick_box %>
+									<%= yield :quick_box %>
 							
-						</section>
-					</div>
-				</aside>
-				<!-- End of Right column/section -->
+							</section>
+						</div>
+					</aside>
+					<!-- End of Right column/section -->
 				<% end %>
 				
 		</div>
