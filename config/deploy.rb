@@ -1,1 +1,1 @@
-server 'jensio', :app, :web, :db, :primary => true
+server 'bbratboard', :app, :web, :db, :primary => true
