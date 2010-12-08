@@ -21,11 +21,11 @@
 	    <th>Customer</th>
 	    <th>FOB</th>
 		<th>Price</th>
-		<% if current_user.admin?%>
+		
 		<th>Actions</th>
 		<th>&nbsp; </th>
 		<th>&nbsp; </th>
-		<% end %>
+
 		<th>Printed?</th>
 	 </tr>
 
@@ -41,11 +41,11 @@
 			<%= sale.price%>
 		</td>
 		
-		<% if current_user.admin?%>
+
 		<td><%= link_to 'PDF', sale_path(sale, :format=>"pdf")%></td>
 	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
 	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
-		<% end %>
+
 		
 		<% if sale.printed? %>
 			<td>

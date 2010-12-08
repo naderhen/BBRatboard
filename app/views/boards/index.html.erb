@@ -12,8 +12,9 @@
     <th>Board</th>
 	<th>Sales</th>
 	<th>&nbsp;</th>
-	<% if current_user.admin? %>
+	
 	<th>&nbsp;</th>
+	<% if current_user.admin? %>
 	<th>&nbsp;</th>
 	<% end %>
   </tr>
@@ -24,8 +25,9 @@
 	<td><%= board.sales.size %></td>
     <td><%= link_to 'Show', board %></td>
 
-	<% if current_user.admin?%>
+	
     <td><%= link_to 'Edit', edit_board_path(board) %></td>
+	<% if current_user.admin?%>
     <td><%= link_to 'Destroy', board, :confirm => 'Are you sure?', :method => :delete %></td>
 	<% end %>
   </tr>
