@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101130200328) do
+ActiveRecord::Schema.define(:version => 20101209200901) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(:version => 20101130200328) do
     t.string   "size_pref"
     t.string   "cotefr"
     t.boolean  "printed",      :default => false
+    t.string   "customer_po"
   end
 
   create_table "slugs", :force => true do |t|

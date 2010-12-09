@@ -115,9 +115,9 @@ tr.footer{font-weight:bold;}
 
 
 
-	#newsale_form{display:none;height:497px;}
-	#newsale_placeholder{height:485px;}
-#newsale_form #customer_auto, #sale_fob, #sale_notes{width:200px;}
+	#newsale_form{display:none;height:535px;}
+	#newsale_placeholder{height:559px;}
+#newsale_form #customer_auto, #sale_fob, #sale_notes, #sale_customer_po{width:200px;}
 #newsale_form #sale_amount, #sale_price, #sale_size_pref, #sale_cotefr{width:90px;}
 
 #sale_amount_container{float:left;}
@@ -136,21 +136,20 @@ tr.footer{font-weight:bold;}
 .worksheet_container{page-break-before: always;margin:auto;width:576px;height:720px;background-image:url('../images/Worksheet_template.png');}
 .worksheet_content{position:relative;color:black;}
 
-.worksheet_content h2{color:black;size:20px;}
+.worksheet_content h2{color:black;font-size:14px;}
 
 .wk_id{position:absolute;top:-14px;left:125px;}
-.wk_user{position:absolute;top:-14px;left:385px;}
+.wk_user{position:absolute;top:-13px;left:385px;}
 .wk_customer{position:absolute;top:60px;left:10px;}
+.wk_customer_po{position:absolute;top:94px;left:95px;}
 .wk_fob{position:absolute;top:60px;left:300px;}
-.wk_amount{position:absolute;top:230px;left:75px;}
+.wk_amount{position:absolute;top:230px;left:50px;}
 .wk_ratgrade{position:absolute;top:230px;left:185px;}
 .wk_warehouse{position:absolute;top:230px;left:310px;}
-.wk_price{position:absolute;top:230px;left:465px;}
-.wk_notes{position:absolute;top:335px;left:10px;}
-.wk_size_pref_label{position:absolute;top:275px;left:116px; font-size:15px;}
-.wk_size_pref{position:absolute;top:275px;left:190px;font-size:15px;}
-.wk_cft_label{position:absolute;top:275px;left:380px; font-size:15px;}
-.wk_cft{position:absolute;top:275px;left:455px;font-size:15px;}
+.wk_price{position:absolute;top:230px;left:98px;}
+.wk_notes{position:absolute;top:335px;left:10px;font-size:12px;}
+.wk_size_pref{position:absolute;top:275px;left:70px;font-size:15px;}
+.wk_cft{position:absolute;top:275px;left:340px;font-size:15px;}
 
 
 
