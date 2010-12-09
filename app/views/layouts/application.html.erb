@@ -166,6 +166,10 @@
 								<%= yield :shortcut_box %>
 							</dl>
 						</div>
+						
+						
+						
+						<% if content_for?(:quick_title)%>
 						<div class="content-box">
 							<header>
 								<h3><%= yield :quick_title%></h3>
@@ -176,6 +180,7 @@
 							
 							</section>
 						</div>
+						<% end %>
 					</aside>
 					<!-- End of Right column/section -->
 				<% end %>
