@@ -16,7 +16,7 @@ class RatgradesController < ApplicationController
   # GET /ratgrades/1.xml
   def show
     @ratgrade = Ratgrade.find(params[:id])
-
+    @sales = @ratgrade.sales
     respond_to do |format|
       format.html # show.html.erb
       format.js
