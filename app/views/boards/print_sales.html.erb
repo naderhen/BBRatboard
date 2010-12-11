@@ -2,42 +2,36 @@
 
 <div class="worksheet_container">
 	<div class="worksheet_content">
+		<h2 class="wk_id"><%= sale.id %></h2>
+		<h2 class="wk_user"><%= sale.user.full_name %></h2>
 
-
-
-
-	<h2 class="wk_id"><%= sale.id %></h2>
-	<h2 class="wk_user"><%= sale.user.full_name %></h2>
-
-	<h2 class="wk_customer"><%= sale.customer.name %></h2>
-	<h2 class="wk_fob"><%= sale.fob %></h2>
-
-
-	<h2 class="wk_amount"><%= sale.amount %></h2>
-	<h2 class="wk_ratgrade"><%= sale.ratgrade.name %></h2>
-	<h2 class="wk_warehouse"><%= sale.ratgrade.warehouse.name %></h2>
-	<h2 class="wk_price"><%= number_to_currency(sale.price) %></h2>
-
+		<h2 class="wk_customer"><%= sale.customer.name %></h2>
+		<h2 class="wk_customer_po"><%= sale.customer_po %></h2>
 		
-		<h2 class="wk_size_pref_label">Size:</h2>
+		<h2 class="wk_fob"><%= sale.fob %></h2>
+
+
+		<h2 class="wk_amount"><%= sale.amount %></h2>
+		<h2 class="wk_ratgrade"><%= sale.ratgrade.name %></h2>
+		<h2 class="wk_price"><%= number_to_currency(sale.price) %></h2>
+		
+		
 		<h2 class="wk_size_pref"><%= sale.size_pref %></h2>
-		<h2 class="wk_cft_label">C/F/T:</h2>
 		<h2 class="wk_cft"><%= sale.cotefr %></h2>
 
-
-	<p class="wk_notes"><%= sale.notes %></p>
-
+		<p class="wk_notes"><%= sale.notes %></p>
 
 
-<!--
-	<div id="actions">
-	<%= link_to 'Edit', edit_ratgrade_sale_path(sale.ratgrade, sale) %> |
-	<%= link_to 'Back', sales_path %>
 
-	</div>
--->
 
+		<div id="actions">
+		<%= link_to 'Edit', edit_ratgrade_sale_path(sale.ratgrade, sale) %> |
+		<%= link_to 'Back', sales_path %>
+
+		</div>
+		
+	
 	</div><!-- worksheet_content -->
-</div><!-- worksheet_container -->	
+</div><!-- worksheet_container -->
 	
 <% end %>
