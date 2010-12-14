@@ -116,6 +116,15 @@ class CustomersController < ApplicationController
         redirect_to :action => :index
   end
   
+  def delete_bad
+    @customers = Customer.bad_customers
+    @customers.each do |customer|
+      customer.destroy
+    end
+    
+    redirect_to :action=>:index
+  end
+  
   
   private 
     def customers_per_page 

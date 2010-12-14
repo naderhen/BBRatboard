@@ -28,6 +28,7 @@ Bbv4::Application.routes.draw do
     resources :customers do
       resources :attachments
       resources :calls
+      get :delete_bad, :on=> :collection
     end
     
 
