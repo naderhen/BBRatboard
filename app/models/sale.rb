@@ -16,6 +16,8 @@ class Sale < ActiveRecord::Base
     
     scope :printed, where("printed=?", true)
     scope :unprinted, where("printed=?", false)
+    
+    
 
 
     protected
