@@ -4,7 +4,7 @@ class Customer < ActiveRecord::Base
   has_many :calls
   validates_presence_of :name, :message => "can't be blank"
   
-  scope :bad_customers, where('client_type = ?', 'Prospect')
+  scope :bad_customers, where('client_type = ?', 'Shipper')
   
   def self.search(search)
     if search
