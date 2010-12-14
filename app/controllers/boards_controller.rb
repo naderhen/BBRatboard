@@ -105,7 +105,7 @@ class BoardsController < ApplicationController
   
   def print_sales
     @board = Board.find(params[:id])
-    @sales=@board.sales, joins(:customers).order('name desc')
+    @sales=@board.sales(:all, :include=>[:customers], :order => 'customers.name')
     @sales.each do |sale|
       
       sale.printed="true"
@@ -119,7 +119,7 @@ class BoardsController < ApplicationController
   
   def print_unprinted_sales
     @board = Board.find(params[:id])
-    @sales=@board.sales.unprinted, joins(:customers).order('name desc')
+    @sales=@board.sales.unprinted(:all, :include=>[:customers], :order => 'customers.name')
     @sales.each do |sale|
       sale.printed="true"
       sale.save!
