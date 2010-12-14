@@ -117,7 +117,7 @@ class CustomersController < ApplicationController
   end
   
   def delete_bad
-    @customers = Customer.bad_customers
+    @customers = Customer.prospects + Customer.shippers + Customer.personals
     @customers.each do |customer|
       customer.destroy
     end
