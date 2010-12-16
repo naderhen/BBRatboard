@@ -117,11 +117,11 @@ class BoardsController < ApplicationController
     end
   end
   
-  def print__user_sales
+  def print_user_sales
     @board = Board.find(params[:id])
     @user = User.find(params[:user_id])
     
-    @sales=@board.sales.find(:all, :conditions=>{"user_id" => params[:user_id]}, :include=>:customer, :order=>'customers.name asc')
+    @sales=@board.sales.find(:all, :conditions=>{"user_id" => params[:user_id]})
     @sales.each do |sale|
       
       sale.printed="true"
