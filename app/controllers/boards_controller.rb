@@ -95,7 +95,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales = @board.sales
     @unprinted = @sales.unprinted.size
-    
+    @salesreps = Role.find(2).users
 
     
   end
@@ -106,6 +106,22 @@ class BoardsController < ApplicationController
   def print_sales
     @board = Board.find(params[:id])
     @sales=@board.sales.find(:all, :include=>:customer, :order=>'customers.name asc')
+    @sales.each do |sale|
+      
+      sale.printed="true"
+      sale.save!
+    end
+    respond_to do |format|
+      format.html {render :layout => 'worksheet'}
+      format.xml  { render :xml => @sale }
+    end
+  end
+  
+  def print__user_sales
+    @board = Board.find(params[:id])
+    @user = User.find(params[:user_id])
+    
+    @sales=@board.sales.find(:all, :conditions=>{"user_id" => params[:user_id]}, :include=>:customer, :order=>'customers.name asc')
     @sales.each do |sale|
       
       sale.printed="true"

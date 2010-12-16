@@ -46,6 +46,7 @@ Bbv4::Application.routes.draw do
       get :rat_sales, :on => :member
       get :print_sales, :on => :member
       get :print_unprinted_sales, :on => :member
+      get :print_user_sales, :on => :member
     end
 
     resources :reports do
