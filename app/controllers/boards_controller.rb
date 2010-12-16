@@ -124,6 +124,7 @@ class BoardsController < ApplicationController
       sale.printed="true"
       sale.save!
     end
+    
     respond_to do |format|
       format.html {render :layout => 'worksheet'}
       format.xml  { render :xml => @sale }
