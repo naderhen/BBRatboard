@@ -1,14 +1,13 @@
-<h1>Editing sale</h1>
+<%= content_for :headline do %>
+<h1>Editing Sale &rarr;<span><%=@sale.customer.name%></span></h1>
 
-<%= form_for( @sale) do |f| %>
+<% end %>
 
+<%= form_for @sale do |f| %>
 
-<% if @sale.errors.any? %>
-<div class="box box-error">Errors!</div>
-	<div class="box box-error-msg">
-	
+	<% if @sale.errors.any? %>
 	    <div id="error_explanation">
-	      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this gig from being saved:</h2>
+	      <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this post from being saved:</h2>
 
 	      <ul>
 	      <% @sale.errors.full_messages.each do |msg| %>
@@ -16,35 +15,84 @@
 	      <% end %>
 	      </ul>
 	    </div>
-	</div>
-<% end %>	
+	  <% end %>
 
+	<p>
+	    <%= f.label "Customer" %><br />
+		<%= f.text_field :customer_id, :class=>"hide_me"%>
+
+		<input type="text" id="customer_auto" name="autocomp" autocomplete="<%=autocomplete_customer_name_sales_path%>" id_element="#sale_customer_id" placeholder="<%=@sale.customer.name%>">
+
+	  </p>
 
 
   <p>
     <%= f.label :amount %><br />
     <%= f.text_field :amount %>
   </p>
+
+	
+
+	<p>
+    	<%= f.label :price %><br />
+	    <%= f.text_field :price %>
+  	</p>
+
+	
+	
+	<p>
+    	<%= f.label :fob %><br />
+	    <%= f.text_field :fob %>
+  	</p>
+
+
+
+	<p>
+    	<%= f.label :size_pref %><br />
+	    <%= f.text_field :size_pref %>
+  	</p>
+
+
+
+	<p>
+    	<%= f.label "C/T/F" %><br />
+	    <%= f.text_field :cotefr %>
+  	</p>
+
+	
+	<p>
+    	<%= f.label "Customer PO" %><br />
+	    <%= f.text_field :customer_po %>
+  	</p>
+	
+	<p>
+    	<%= f.label :notes %><br />
+	    <%= f.text_area :notes %>
+  	</p>
+
+	
+
+	
+	  
+	
+	
+	<%= f.hidden_field :ratgrade_id %>
+	
+
+	<%= f.hidden_field :warehouse_id %> 
+	
+	<%= f.hidden_field :user_id, :value => current_user.id %> 
+	<%= f.hidden_field :allocated, :value => "false" %> 
   <p>
-    <%= f.label :ratgrade_id %><br />
-    <%= f.text_field :ratgrade_id %>
-  </p>
-  <p>
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
-  </p>
-  <p>
-    <%= f.label :customer_id %><br />
-    <%= f.text_field :customer_id %>
-  </p>
-  <p>
-    <%= f.label :allocated %><br />
-    <%= f.check_box :allocated %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
+    
+	<input type="submit" class="btn btn-green big" value="Update">
   </p>
 <% end %>
 
-<%= link_to 'Show', @sale %> |
-<%= link_to 'Back', sales_path %>
+
+
+
+
+
+
+
