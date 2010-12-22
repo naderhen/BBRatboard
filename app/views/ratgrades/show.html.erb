@@ -14,37 +14,27 @@
 		defaultSeriesType: 'spline' 
 		},  
     title: { text: 'Orders by Time' },  
-    xAxis: { type: 'time',
-	        dateTimeLabelFormats: {
-	            hour: '%H:%M'   
-	        }}, 
+    xAxis: { 
+			type: 'datetime'
+			}, 
     yAxis: {  
       title: { text: 'Dollars' }  
     },  
 
-	tooltip:{
-		formatter: function () {  
-		        return Highcharts.dateFormat("%H:%M", this.x) + ': ' +  
-		          '$' + Highcharts.numberFormat(this.y, 2);  
-		      }
-	},
-
+	
 	series: [{
 	         name: 'Order Price',
-				pointInterval: 3600 * 1000 ,  
-				pointStart: <%= @sales.minimum(:created_at).strftime('%r').to_i * 3600 * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
-			<%= sale.price %>,
+				[Date.UTC(<%= sale.created_at.strftime('%Y').to_i%>, <%= sale.created_at.strftime('%m').to_i-1 %>, <%= sale.created_at.strftime('%d').to_i%>,<%= sale.created_at.strftime('%H').to_i %>,<%= sale.created_at.strftime('%M').to_i%> ), <%= sale.price %>],
 			<% end %>
 			]
 	      }, {
 	         name: 'Average Price',
-				pointInterval: 3600 * 1000 ,  
-				pointStart: <%= @sales.minimum(:created_at).strftime('%r').to_i * 3600 * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
-			<%= @sales.average(:price) %>,
+			[Date.UTC(<%= sale.created_at.strftime('%Y').to_i%>, <%= sale.created_at.strftime('%m').to_i-1 %>, <%= sale.created_at.strftime('%d').to_i%>,<%= sale.created_at.strftime('%H').to_i %>,<%= sale.created_at.strftime('%M').to_i%> ), <%= @sales.average(:price) %>],
+				
 			<% end %>
 			]
 	      }]
@@ -54,6 +44,11 @@
 });
 </script>
 
+[
+<% @sales.each do |sale| %> 
+	[Date.UTC(<%= sale.created_at.strftime('%Y')%>, <%= sale.created_at.strftime('%m')%>, <%= sale.created_at.strftime('%d')%>,<%= sale.created_at.strftime('%H') %>,<%= sale.created_at.strftime('%M')%> ), <%= sale.price %>],
+<% end %>
+]
 
 
 
