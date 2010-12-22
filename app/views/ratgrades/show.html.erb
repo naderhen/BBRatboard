@@ -32,7 +32,7 @@
 				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
-			<%= sale.amount %>,
+			<%= sale.price %>,
 			<% end %>
 			]
 	      }, {
@@ -41,7 +41,7 @@
 				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
-			<%= @sales.average(:amount) %>,
+			<%= @sales.average(:price) %>,
 			<% end %>
 			]
 	      }]
@@ -59,10 +59,8 @@
 	<table class="stylized">
   	<tr>
 	    <th>Amount</th>
-	    <th>Grade</th>
-	    <th>Salesperson</th>
+		<th>Price</th>
 	    <th>Customer</th>
-	    <th>Allocated</th>
 		<th>Actions</th>
 		<th>&nbsp; </th>
 		<th>&nbsp; </th>
@@ -72,11 +70,8 @@
   	<% sales.each do |sale| %>
 	<tr>
     	<td><%=h sale.amount %></td>
-	    <td><%=h sale.ratgrade.name %></td>
-	    <td><%=h sale.user.full_name %></td>
+		<td><%=h number_to_currency sale.price %></td>
 	    <td><%=h sale.customer.name %></td>
-	    <td><%=h sale.allocated %></td>
-	    <td><%= link_to 'Show', sale %></td>
 	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
 	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
