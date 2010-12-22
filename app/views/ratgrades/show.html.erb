@@ -44,11 +44,6 @@
 });
 </script>
 
-[
-<% @sales.each do |sale| %> 
-	[Date.UTC(<%= sale.created_at.strftime('%Y')%>, <%= sale.created_at.strftime('%m')%>, <%= sale.created_at.strftime('%d')%>,<%= sale.created_at.strftime('%H') %>,<%= sale.created_at.strftime('%M')%> ), <%= sale.price %>],
-<% end %>
-]
 
 
 
