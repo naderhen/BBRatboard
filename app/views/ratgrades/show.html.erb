@@ -27,7 +27,7 @@
 	},
 
 	series: [{
-	         name: 'Order Amount',
+	         name: 'Order Price',
 				pointInterval: 180000 ,  
 				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
 	         data: [
