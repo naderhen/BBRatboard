@@ -14,7 +14,7 @@
 		defaultSeriesType: 'spline' 
 		},  
     title: { text: 'Orders by Time' },  
-    xAxis: { type: 'datetime',
+    xAxis: { type: 'time',
 	        dateTimeLabelFormats: {
 	            hour: '%H:%M'   
 	        }}, 
@@ -31,8 +31,8 @@
 
 	series: [{
 	         name: 'Order Price',
-				pointInterval: 180000 ,  
-				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
+				pointInterval: 3600 * 1000 ,  
+				pointStart: <%= @sales.minimum(:created_at).strftime('%r').to_i * 3600 * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
 			<%= sale.price %>,
@@ -40,8 +40,8 @@
 			]
 	      }, {
 	         name: 'Average Price',
-				pointInterval: 180000 ,  
-				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
+				pointInterval: 3600 * 1000 ,  
+				pointStart: <%= @sales.minimum(:created_at).strftime('%r').to_i * 3600 * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
 			<%= @sales.average(:price) %>,
@@ -63,6 +63,7 @@
   	<tr>
 	    <th>Amount</th>
 		<th>Price</th>
+		<th>Time</th>
 	    <th>Customer</th>
 		<th>Actions</th>
 		<th>&nbsp; </th>
@@ -74,6 +75,7 @@
 	<tr>
     	<td><%=h sale.amount %></td>
 		<td><%=h number_to_currency sale.price %></td>
+		<td><%= sale.created_at.strftime('%r')%></td>
 	    <td><%=h sale.customer.name %></td>
 	    <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
 	    <td><%= link_to 'Destroy', sale, :confirm => 'Are you sure?', :method => :delete %></td>
