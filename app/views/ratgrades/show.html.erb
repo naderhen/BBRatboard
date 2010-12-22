@@ -19,9 +19,16 @@
       title: { text: 'Dollars' }  
     },  
 
+	tooltip:{
+		formatter: function () {  
+		        return Highcharts.dateFormat("%H:%M", this.x) + ': ' +  
+		          '$' + Highcharts.numberFormat(this.y, 2);  
+		      }
+	},
+
 	series: [{
 	         name: 'Order Amount',
-				pointInterval: 18000 ,  
+				pointInterval: 180000 ,  
 				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
@@ -30,7 +37,7 @@
 			]
 	      }, {
 	         name: 'Average Price',
-				pointInterval: 18000 ,  
+				pointInterval: 180000 ,  
 				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
 	         data: [
 			<% @sales.each do |sale| %> 
