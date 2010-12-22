@@ -4,6 +4,48 @@
 <% end %>
 
 
+<div id="orders_chart" style="width: 828px; height: 300px;"></div> 
+
+<script type="text/javascript" charset="utf-8">  
+  $(function () {  
+  new Highcharts.Chart({  
+    chart: { renderTo: 'orders_chart' },  
+    title: { text: 'Orders by Time' },  
+    xAxis: { type: 'datetime',
+	        dateTimeLabelFormats: {
+	            hour: '%H:%M'   
+	        }}, 
+    yAxis: {  
+      title: { text: 'Dollars' }  
+    },  
+
+	series: [{
+	         name: 'Order Amount',
+				pointInterval: 18000 ,  
+				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
+	         data: [
+			<% @sales.each do |sale| %> 
+			<%= sale.amount %>,
+			<% end %>
+			]
+	      }, {
+	         name: 'Average Price',
+				pointInterval: 18000 ,  
+				pointStart: <%= @sales.minimum(:created_at).to_i * 1000 %>,
+	         data: [
+			<% @sales.each do |sale| %> 
+			<%= @sales.average(:amount) %>,
+			<% end %>
+			]
+	      }]
+	
+
+  });  
+});
+</script>
+
+
+
 
 <% @sales.group_by(&:user).each do |user,sales| %>
 	<h2><%=user.full_name %></h2>
