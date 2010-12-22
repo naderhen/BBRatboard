@@ -9,7 +9,10 @@
 <script type="text/javascript" charset="utf-8">  
   $(function () {  
   new Highcharts.Chart({  
-    chart: { renderTo: 'orders_chart' },  
+    chart: { 
+		renderTo: 'orders_chart',
+		defaultSeriesType: 'spline' 
+		},  
     title: { text: 'Orders by Time' },  
     xAxis: { type: 'datetime',
 	        dateTimeLabelFormats: {
