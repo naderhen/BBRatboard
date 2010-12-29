@@ -22,6 +22,14 @@
 	.trend_selector:hover{cursor:pointer;}
 	
 
+th, tr{text-align:center;}
+
+input.small{width:30px !important;}
+#prediction_link{margin-left:25px;}
+th.prediction_header{border-right:2px solid white;}
+th.prediction_low{}
+th.prediction_high{border-right:1px dotted white;border-left:2px solid white;}
+.hilo_row{border-top:1px solid white;}
 
 
 .availamt{color:green;font-weight:bold;}

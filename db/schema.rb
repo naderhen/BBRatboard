@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101209200901) do
+ActiveRecord::Schema.define(:version => 20101228183151) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -102,6 +102,37 @@ ActiveRecord::Schema.define(:version => 20101209200901) do
 
   create_table "import_tables", :force => true do |t|
     t.string   "original_path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "prediction_reports", :force => true do |t|
+    t.integer  "board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "predictions", :force => true do |t|
+    t.integer  "preport_id"
+    t.integer  "user_id"
+    t.float    "aplushigh"
+    t.float    "apluslow"
+    t.float    "ahigh"
+    t.float    "alow"
+    t.float    "aminushigh"
+    t.float    "aminuslow"
+    t.float    "bplusplushigh"
+    t.float    "bpluspluslow"
+    t.float    "twohhigh"
+    t.float    "twohlow"
+    t.float    "bhigh"
+    t.float    "blow"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "preports", :force => true do |t|
+    t.integer  "board_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

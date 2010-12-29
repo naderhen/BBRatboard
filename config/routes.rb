@@ -1,4 +1,7 @@
 Bbv4::Application.routes.draw do
+resources :predictions
+resources :preports
+
   get "flashboard/index"
 
   resources :calls
@@ -47,6 +50,9 @@ Bbv4::Application.routes.draw do
       get :print_sales, :on => :member
       get :print_unprinted_sales, :on => :member
       get :print_user_sales, :on => :member
+      resources :preports do
+        resources :predictions
+      end
     end
 
     resources :reports do

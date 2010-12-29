@@ -327,7 +327,7 @@
 	table.stylized th {
 		background-color:#2A7AD2 !important;
 		color:#fff;
-		text-align:left;
+		text-align:center;
 	}
 	table.stylized tr.high {
 		background-color:#ffa !important;
@@ -346,7 +346,7 @@
 	}
 	table.stylized caption {
 		margin-bottom:1em;
-		text-align:left;
+		text-align:center;
 		font-size:11px;
 		text-transform:uppercase;
 	}
@@ -362,7 +362,7 @@
 	}
 	table.no-style caption {
 		margin-bottom:0;
-		text-align: left;
+		text-align: center;
 	}
 	/* flot TD */
 	td.legendLabel {
