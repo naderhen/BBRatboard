@@ -1,4 +1,6 @@
 class PredictionsController < ApplicationController
+  before_filter :require_user
+  before_filter :require_staff
   # GET /predictions
   # GET /predictions.xml
   def index

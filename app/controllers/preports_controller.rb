@@ -1,4 +1,6 @@
 class PreportsController < ApplicationController
+  before_filter :require_user
+  before_filter :require_staff
   # GET /preports
   # GET /preports.xml
   def index
