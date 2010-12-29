@@ -149,8 +149,9 @@ tr.footer{font-weight:bold;}
 
 .worksheet_content h2{color:black;font-size:14px;}
 
-.wk_id{position:absolute;top:-14px;left:125px;}
+.wk_id{position:absolute;top:0px;left:125px;}
 .wk_user{position:absolute;top:-13px;left:385px;}
+.wk_prebill{position:absolute;top:-18px;left:0px;font-size:20px !important;}
 .wk_customer{position:absolute;top:60px;left:10px;}
 .wk_customer_po{position:absolute;top:94px;left:95px;}
 .wk_fob{position:absolute;top:60px;left:300px;}
