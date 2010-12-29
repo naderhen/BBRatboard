@@ -46,7 +46,22 @@
 </div>
 	<div class="clearfix"></div>
 	
-	
+	<div id="sale_invoice_date_container" class="left">
+	  <p>
+	    <%= f.label :invoice_date %><br />
+	    <%= f.text_field :invoice_date, :class=>"datepicker", :value=>Date.today %>
+	  </p>
+	</div>
+
+	<div id="sale_receive_date_container" class="right">
+		<p>
+	    	<%= f.label :receive_date %><br />
+		    <%= f.text_field :receive_date, :class=>"datepicker", :value=>Date.today+2  %>
+	  	</p>
+	</div>
+		<div class="clearfix"></div>	
+
+
 	<p>
     	<%= f.label :fob %><br />
 	    <%= f.text_field :fob %>
