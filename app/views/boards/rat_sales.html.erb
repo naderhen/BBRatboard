@@ -46,12 +46,10 @@
 	    <td><%=h sale.ratgrade.name %></td>
 	    <td><%= sale.created_at.strftime('%I:%M %p') %> </td>
 	    <td><%=h sale.customer.name %></td>
-		<% if sale.invoice_date > Date.today %>
-		<td>**<%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %> - <%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %>**</td>
-		<% else %>
+		
 		
 		<td><%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %> - <%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %></td>
-		<% end %>
+
 		
 		
 	    <td><%=h sale.fob %></td>
