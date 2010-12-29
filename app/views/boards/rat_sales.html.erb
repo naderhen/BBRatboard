@@ -26,8 +26,9 @@
   	<tr>
 	    <th>Amount</th>
 	    <th>Grade</th>
-	    <th>Salesperson</th>
+	    <th>Time</th>
 	    <th>Customer</th>
+		<th>Dates</th>
 	    <th>FOB</th>
 		<th>Price</th>
 		
@@ -43,10 +44,11 @@
 	<tr>
     	<td><%=h sale.amount %></td>
 	    <td><%=h sale.ratgrade.name %></td>
-	    <td><%=h sale.user.full_name %>
-			<span>(<%= sale.created_at.strftime('%I:%M %p') %> )</span>
-		</td>
+	    <td><%= sale.created_at.strftime('%I:%M %p') %> </td>
 	    <td><%=h sale.customer.name %></td>
+		<td><%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %> - <%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %></td>
+		
+		
 	    <td><%=h sale.fob %></td>
 		<td>
 			<%= sale.price%>
