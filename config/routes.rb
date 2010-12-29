@@ -1,6 +1,10 @@
 Bbv4::Application.routes.draw do
+resources :pnotes
+
 resources :predictions
-resources :preports
+resources :preports do
+    resources :pnotes
+end
 
   get "flashboard/index"
 

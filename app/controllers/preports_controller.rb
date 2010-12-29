@@ -21,6 +21,10 @@ class PreportsController < ApplicationController
     else
       @preport=Preport.find(params[:id])
     end
+    
+    @pnote=@preport.pnotes.build
+    @pnotes =  @preport.pnotes
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @preport }

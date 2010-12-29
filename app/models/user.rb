@@ -3,11 +3,12 @@ class User < ActiveRecord::Base
   has_many :assignments
   has_and_belongs_to_many :reports
   has_many :roles, :through => :assignments
-  has_many :sales
+  has_many :sales, :dependent=>:destroy
   has_many :ratgrades, :through=>:sales
-  has_many :announcements
-  has_many :calls
-  has_many :predictions
+  has_many :announcements, :dependent=>:destroy
+  has_many :calls, :dependent=>:destroy
+  has_many :predictions, :dependent=>:destroy
+  has_many :pnotes, :dependent=>:destroy
   
 
 

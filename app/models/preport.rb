@@ -1,7 +1,9 @@
 class Preport < ActiveRecord::Base
   belongs_to :board
   has_many :predictions, :dependent=>:destroy
+  has_many :pnotes, :dependent=>:destroy
   
+  accepts_nested_attributes_for :pnotes
   
   after_save :create_user_predictions
   
