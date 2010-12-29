@@ -44,7 +44,7 @@ class PnotesController < ApplicationController
 
     respond_to do |format|
       if @pnote.save
-        format.html { redirect_to(@pnote.preport, :notice => 'Pnote was successfully created.') }
+        format.html { redirect_to(@pnote.preport, :notice => 'Note was successfully created.') }
         format.xml  { render :xml => @pnote.preport, :status => :created, :location => @pnote }
       else
         format.html { render :action => "new" }
@@ -61,7 +61,7 @@ class PnotesController < ApplicationController
     
     respond_to do |format|
       if @pnote.update_attributes(params[:pnote])
-        format.html { redirect_to(@pnote.preport, :notice => 'Pnote was successfully updated.') }
+        format.html { redirect_to(@pnote.preport, :notice => 'Note was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -147,7 +147,8 @@
 		
 			
 			<tr>
-				<td><%= pnote.content%></td>
+				<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
+				
 			</tr>
 			<% end %>
 
