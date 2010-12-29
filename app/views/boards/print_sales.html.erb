@@ -11,8 +11,8 @@
 		<h2 class="wk_fob"><%= sale.fob %></h2>
 
 		
-		<h2 class="wk_invoice_date"><%= sale.invoice_date.strftime('%m/%d') %></h2>
-		<h2 class="wk_receive_date"><%= sale.receive_date.strftime('%m/%d')  %></h2>
+		<h2 class="wk_invoice_date"><%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %></h2>
+		<h2 class="wk_receive_date"><%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %></h2>
 		
 		
 		<h2 class="wk_amount"><%= sale.amount %></h2>
