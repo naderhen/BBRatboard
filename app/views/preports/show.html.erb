@@ -64,23 +64,60 @@
 			</tr>
 		<% end %>
 		
-			<tr class="footer">
-				<td>Averages:</td>
-				<td><%= (number_to_currency @preport.predictions.average(:aplushigh) )%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:apluslow))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:ahigh))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:alow))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:aminushigh))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:aminuslow))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:bplusplushigh))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:bpluspluslow))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:twohhigh))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:twohlow))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:bhigh))%></td>
-				<td><%= (number_to_currency @preport.predictions.average(:blow))%></td>
-			</tr>
+			
 	</tbody>
 	
+</table>
+
+<br />
+
+<fieldset>
+<legend>Average Market Predictions</legend>
+</fieldset>
+<table class="stylized">
+	<thead>
+		<th class="prediction_header" >Averages</th>
+		<th class="prediction_header" colspan="2">A+</th>
+		<th class="prediction_header"  colspan="2">A</th>
+		<th class="prediction_header"  colspan="2">A-</th>
+		<th class="prediction_header"  colspan="2">B++</th>
+		<th class="prediction_header"  colspan="2">2H</th>
+		<th class="prediction_header"  colspan="2">B</th>
+
+	</thead>
+	<thead class="hilo_row">
+		<th></th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+
+
+	</thead>
+
+	<tr class="footer">
+		<td></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aplushigh) )%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:apluslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:ahigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:alow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aminushigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:aminuslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bplusplushigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bpluspluslow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:twohhigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:twohlow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:bhigh))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:blow))%></td>
+	</tr>
 </table>
 
 
