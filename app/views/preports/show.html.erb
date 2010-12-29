@@ -129,6 +129,70 @@
 <br />
 <br />
 
+<fieldset>
+<legend>Market Notes</legend>
+</fieldset>
+
+<h1>
+
+		<% @pnotes.group_by(&:user).each do |user, pnotes| %>
+			<h1><%= user.full_name%></h1>
+			
+			<table class="stylized full">
+				<thead>
+					<th>Comments</th>
+				</thead>
+				<tbody>
+		 	<% for pnote in pnotes %>
+		
+			
+			<tr>
+				<td><%= pnote.content%></td>
+			</tr>
+			<% end %>
+
+		<% end %>
+	</tbody>
+</table>
 
 
+<br />
+<br />
+<br />
+<br />
+
+
+<% content_for(:shortcut_title) do %>
+	Market Prediction Form
+<% end %>
+
+<% content_for(:shortcut_box) do %>
+	<%= form_for @pnote do |f| %>
+	  <% if @pnote.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@pnote.errors.count, "error") %> prohibited this pnote from being saved:</h2>
+
+	      <ul>
+	      <% @pnote.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+
+		<%= f.hidden_field :user_id, :value => current_user.id %> 
+		<%= f.hidden_field :preport_id, :value => @preport.id %> 
+	  <div class="field">
+	    <%= f.label "Enter your Comments Here" %><br />
+	    <%= f.text_area :content, :size=>"35" %>
+	  </div>
+	  <div class="actions">
+	    <input type="submit" class="btn btn-green big" value="Submit">
+	  </div>
+	<% end %>
+
+
+<br />
+	
+<% end %>
 

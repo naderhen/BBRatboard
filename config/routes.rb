@@ -1,4 +1,6 @@
 Bbv4::Application.routes.draw do
+  resources :pnotes
+
 resources :pnotes
 
 resources :predictions

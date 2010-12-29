@@ -13,8 +13,7 @@ class PnotesController < ApplicationController
   # GET /pnotes/1
   # GET /pnotes/1.xml
   def show
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.find(params[:id])
+    @pnote = Pnote.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,8 +24,7 @@ class PnotesController < ApplicationController
   # GET /pnotes/new
   # GET /pnotes/new.xml
   def new
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.build
+    @pnote = Pnote.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,21 +34,18 @@ class PnotesController < ApplicationController
 
   # GET /pnotes/1/edit
   def edit
-    
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.find(params[:id])
+    @pnote = Pnote.find(params[:id])
   end
 
   # POST /pnotes
   # POST /pnotes.xml
   def create
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.build(params[:pnote])
+    @pnote = Pnote.new(params[:pnote])
 
     respond_to do |format|
       if @pnote.save
-        format.html { redirect_to(@preport, :notice => 'Note was successfully created.') }
-        format.xml  { render :xml => @preport, :status => :created, :location => @preport }
+        format.html { redirect_to(@pnote.preport, :notice => 'Pnote was successfully created.') }
+        format.xml  { render :xml => @pnote.preport, :status => :created, :location => @pnote }
       else
         format.html { render :action => "new" }
         format.xml  { render :xml => @pnote.errors, :status => :unprocessable_entity }
@@ -61,12 +56,12 @@ class PnotesController < ApplicationController
   # PUT /pnotes/1
   # PUT /pnotes/1.xml
   def update
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.find(params[:id])
-
+    
+    @pnote = Pnote.find(params[:id])
+    
     respond_to do |format|
       if @pnote.update_attributes(params[:pnote])
-        format.html { redirect_to(@preport, :notice => 'Note was successfully updated.') }
+        format.html { redirect_to(@pnote.preport, :notice => 'Pnote was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,12 +73,11 @@ class PnotesController < ApplicationController
   # DELETE /pnotes/1
   # DELETE /pnotes/1.xml
   def destroy
-    @preport = Preport.find(params[:preport_id])
-    @pnote = @preport.pnotes.find(params[:id])
+    @pnote = Pnote.find(params[:id])
     @pnote.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@preport) }
+      format.html { redirect_to(pnotes_url) }
       format.xml  { head :ok }
     end
   end

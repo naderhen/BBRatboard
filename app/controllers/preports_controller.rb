@@ -19,11 +19,17 @@ class PreportsController < ApplicationController
       @board = Board.find(params[:board_id])
       @preport = @board.preport
     else
-      @preport=Preport.find(params[:id])
+      @preport = Preport.find(params[:id])
     end
     
-    @pnote=@preport.pnotes.build
-    @pnotes =  @preport.pnotes
+    
+    @pnotes = @preport.pnotes
+    @pnote=Pnote.new
+    
+    
+  
+    
+    
     
     respond_to do |format|
       format.html # show.html.erb

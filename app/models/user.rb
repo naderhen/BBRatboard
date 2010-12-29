@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_many :announcements, :dependent=>:destroy
   has_many :calls, :dependent=>:destroy
   has_many :predictions, :dependent=>:destroy
-  has_many :pnotes, :dependent=>:destroy
+  has_many :pnotes
   
 
 
