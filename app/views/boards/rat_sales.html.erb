@@ -41,7 +41,7 @@
 
 
   	<% sales.each do |sale| %>
-	<% if sale.oversale?%>
+	<% if sale.oversale == true%>
 	<tr class="oversale">
 	<% else %>
 	<tr>
