@@ -21,7 +21,7 @@
 
 	.trend_selector:hover{cursor:pointer;}
 	
-
+.oversale td{background-color:#FDD9E2 !important;}
 th, tr{text-align:center;}
 
 input.small{width:30px !important;}

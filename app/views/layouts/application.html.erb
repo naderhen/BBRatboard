@@ -51,7 +51,7 @@
 				<% end %>
 				<% if current_user && current_user.staff? %>
 					<small>You are an <a href="#" class="high"> Admin!</a></small><br />
-					<small>Your Single Access Token is: <a href="#" class="high"><%= Date.today %> </a></small>
+					<small>Your Single Access Token is: <a href="#" class="high"> <%=Time.now.strftime('%I:%M %p') %> </a></small>
 					
 				<% end %>
 			</div>

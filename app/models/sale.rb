@@ -6,6 +6,7 @@ class Sale < ActiveRecord::Base
     belongs_to :board
     
     after_create :push_create
+    before_save :bad_sale
     validates_presence_of :ratgrade, :on => :create, :message => "can't be blank"
     validates_presence_of :amount, :on => :create, :message => "can't be blank"
     validates_presence_of :user, :on => :create, :message => "can't be blank"
@@ -18,7 +19,14 @@ class Sale < ActiveRecord::Base
     scope :unprinted, where("printed=?", false)
     
     
-
+    
+    
+    def bad_sale
+      ratgrade = self.ratgrade
+      if self.amount > ratgrade.availableamt
+        self.oversale = true
+      end
+    end
 
     protected
 
