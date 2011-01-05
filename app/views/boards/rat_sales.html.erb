@@ -41,11 +41,8 @@
 
 
   	<% sales.each do |sale| %>
-	<% if sale.oversale == true%>
-	<tr class="oversale">
-	<% else %>
 	<tr>
-	<% end %>
+
     	<td><%=h sale.amount %></td>
 	    <td><%=h sale.ratgrade.name %></td>
 	    <td><%= sale.created_at.strftime('%I:%M %p') %> </td>
