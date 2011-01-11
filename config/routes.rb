@@ -1,6 +1,8 @@
 Bbv4::Application.routes.draw do
-  resources :pnotes
+  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
 
+  resources :pnotes
+resources :events
 resources :pnotes
 
 resources :predictions
@@ -73,7 +75,7 @@ end
     match "logout" => "user_sessions#destroy", :as => "logout"  
     match "dashboard" => "dashboard#index", :as => "dashboard"   
     match "flashboard" => "flashboard#index", :as => "flashboard"   
-    
+    match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
     
     
     root :to => "dashboard#index"

@@ -44,6 +44,7 @@ GEM
     crack (0.1.8)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    event-calendar (2.3.2)
     fastercsv (1.5.3)
     friendly_id (3.1.6)
       babosa (~> 0.2.0)
@@ -99,6 +100,7 @@ PLATFORMS
 
 DEPENDENCIES
   authlogic
+  event-calendar
   fastercsv
   friendly_id
   mysql2
