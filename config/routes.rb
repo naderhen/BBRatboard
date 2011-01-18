@@ -77,7 +77,6 @@ end
     match "flashboard" => "flashboard#index", :as => "flashboard"   
     match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}
     
-    
     root :to => "dashboard#index"
 
   # The priority is based upon order of creation:
