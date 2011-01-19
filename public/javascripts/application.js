@@ -91,7 +91,7 @@ $(function() {
 			var user_list = $('#'+user_login+'-sales-list');
 		    
 			user_list.effect('highlight');
-			user_list.append('<li><h2>'+customer+'</h2><h3>'+sale_amount+'<span>pieces of</span></h3><h3 class="ratgrade_name">'+ratgrade+'</h3></li>');
+			user_list.prepend('<li><h2>'+customer+'</h2><h3>'+sale_amount+'<span>pieces of</span></h3><h3 class="ratgrade_name">'+ratgrade+'</h3></li>');
 
 
 		  });
