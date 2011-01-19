@@ -1,7 +1,7 @@
 
 <% if @sales%>
 
-	<% @sales.group_by(&:user).sort.each do |user, sales| %>
+	<% @sales.group_by(&:user).each do |user, sales| %>
 		<div id="<%=user.login%>-sales" class="flash_column">
 			<h1><%= user.full_name%></h1>
 			<h2><%= sales.size%> Sales</h2>
