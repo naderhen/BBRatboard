@@ -85,6 +85,8 @@ $(function() {
 
 		  pusher.bind('create', function(sale) {
 			var sale_amount = sale.amount;
+			var sale_price = sale.price;
+			var ratgrade_average = sale.average
 			var user_login = sale.user_login;
 			var customer = sale.customer;
 			var ratgrade = sale.ratgrade;
@@ -93,8 +95,22 @@ $(function() {
 			user_list.effect('highlight');
 			user_list.prepend('<li><h2>'+customer+'</h2><h3>'+sale_amount+'<span>pieces of</span></h3><h3 class="ratgrade_name">'+ratgrade+'</h3></li>');
 
+			if (sale.price > (ratgrade_average+.50) ) {
+				alert("hi!");
+			};
+
 
 		  });
+		
+		
+		$("#clickme").live("click", function(){
+			document.getElementById('chaching').play();
+			document.getElementById('chaching').currentTime = 0;
+			
+			return false;
+		});
+		
+		
 
 
 		

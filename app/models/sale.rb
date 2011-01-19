@@ -39,9 +39,11 @@ class Sale < ActiveRecord::Base
     def push_event(event_type)
     Pusher["BBRatboard-#{Rails.env}"].trigger(event_type, 
                                    {:amount => self.amount, 
+                                    :price=>self.price,
                                     :user_login => self.user.login,
                                     :customer=>self.customer.name,
-                                    :ratgrade=>self.ratgrade.name
+                                    :ratgrade=>self.ratgrade.name,
+                                    :average=>self.ratgrade.average_price
                                     
                                     
                                     

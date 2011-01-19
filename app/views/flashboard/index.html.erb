@@ -20,8 +20,24 @@
 
 	<% end %>
 	
+	<ul>
+	<% @ratgrades.each do |ratgrade| %>
+		<li id="ratgrade-<%= ratgrade.id%>" data-warehouse="<%= ratgrade.warehouse.name%>" data-average="<%= number_to_currency(ratgrade.average_price)%>"><%= ratgrade.name%></li>
+	<% end %>
+	</ul>
+	
+	
 <% else %>
 
 <h1> No RATBoard Available!</h1>
 
 <% end %>
+
+
+
+<audio id="chaching">
+	<source src="/images/sounds/chaching.ogg" />
+	<source src="/images/sounds/chaching.mp3" />
+</audio>
+
+<a href="#" id="clickme">CLICK ME</a>
