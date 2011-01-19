@@ -1,6 +1,9 @@
 
 <% if @sales%>
+	<% @sales.group_by(&:user).sort.each do |user, sales| %>
 
+
+	<% end %>
 <% else %>
 
 <h1> No RATBoard Available!</h1>
