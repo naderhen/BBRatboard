@@ -96,19 +96,12 @@ $(function() {
 			user_list.prepend('<li><h2>'+customer+'</h2><h3>'+sale_amount+'<span>pieces of</span></h3><h3 class="ratgrade_name">'+ratgrade+'</h3></li>');
 
 			if (sale.price > (ratgrade_average+.35) ) {
-				alert("hi!");
+				
 			};
 
 
 		  });
-		
-		
-		$("#clickme").live("click", function(){
-			document.getElementById('chaching').play();
-			document.getElementById('chaching').currentTime = 0;
-			
-			return false;
-		});
+
 		
 		
 
