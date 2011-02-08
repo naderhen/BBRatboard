@@ -12,6 +12,10 @@
 	this file, and modify it to your liking. 
 
 */
+
+#excel_link img{margin-top:15px;margin-left:25px;position:relative}
+
+
 #page{height:100%;}
 #bottom{position:relative;margin-top:100px;}
 

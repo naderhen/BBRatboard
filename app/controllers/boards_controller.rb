@@ -1,4 +1,4 @@
-
+require 'fastercsv'
 class BoardsController < ApplicationController
   before_filter :require_user
   before_filter :require_staff
@@ -113,7 +113,7 @@ class BoardsController < ApplicationController
     end
     respond_to do |format|
       format.html {render :layout => 'worksheet'}
-      format.xml  { render :xml => @sale }
+      format.xml
     end
   end
   
@@ -145,6 +145,22 @@ class BoardsController < ApplicationController
       format.html {render :layout => 'worksheet'}
       format.xml  { render :xml => @sale }
     end
+  end
+  
+  def print_csv
+    @board = Board.find(params[:id])
+    @sales=@board.sales.find(:all, :include=>:customer, :order=>'customers.name asc')
+    
+    csv_string = FasterCSV.generate do |csv|
+      csv<<["Salesperson","Sale Amount","Grade","Customer","Invoice Date","FOB","Price", "Size Pref", "G/T/F", "Notes"]
+      
+      @sales.each do |sale|
+        csv<<[sale.user.full_name, sale.amount, sale.ratgrade.name, sale.customer.name, sale.invoice_date, sale.fob, sale.price, sale.size_pref, sale.cotefr, sale.notes]
+      end
+    end
+    send_data csv_string,
+                :type => 'text/csv; charset=iso-8859-1; header=present',
+                :disposition => "attachment; filename=users.csv"
   end
   
   
