@@ -134,8 +134,8 @@ Role:
 
 Sale:
   fields:
-    default: amount, ratgrade_id, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, board, customer, ratgrade, user, warehouse
-    form: amount, ratgrade_id, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, notes, board, customer, ratgrade, user, warehouse
+    default: amount, ratgrade_id, invoice_date, receive_date, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, board, customer, ratgrade, user, warehouse
+    form: amount, ratgrade_id, invoice_date, receive_date, user_id, customer_id, allocated, warehouse_id, board_id, price, fob, notes, board, customer, ratgrade, user, warehouse
   order_by: 
   relationships: board, customer, ratgrade, user, warehouse
   filters: 
