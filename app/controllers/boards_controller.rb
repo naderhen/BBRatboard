@@ -154,13 +154,20 @@ class BoardsController < ApplicationController
     csv_string = FasterCSV.generate do |csv|
       csv<<["Salesperson","Sale Amount","Grade","Customer","Invoice Date","FOB","Price", "Size Pref", "G/T/F", "Notes"]
       
-      @sales.each do |sale|
-        csv<<[sale.user.full_name, sale.amount, sale.ratgrade.name, sale.customer.name, sale.invoice_date, sale.fob, sale.price, sale.size_pref, sale.cotefr, sale.notes]
+      @sales.group_by(&:warehouse_id).sort.each do |warehouse_id,sales|
+        warehouse = Warehouse.find(warehouse_id)
+        csv<<[warehouse.name]
+        sales.each do |sale|
+          csv<<[sale.user.full_name, sale.amount, sale.ratgrade.name, sale.customer.name, sale.invoice_date, sale.fob, sale.price, sale.size_pref, sale.cotefr, sale.notes]
+        end
+        csv<<[]
       end
     end
+    
+    
     send_data csv_string,
                 :type => 'text/csv; charset=iso-8859-1; header=present',
-                :disposition => "attachment; filename=users.csv"
+                :disposition => "attachment; filename=orders.csv"
   end
   
   
