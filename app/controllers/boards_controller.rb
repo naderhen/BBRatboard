@@ -167,7 +167,7 @@ class BoardsController < ApplicationController
     
     send_data csv_string,
                 :type => 'text/csv; charset=iso-8859-1; header=present',
-                :disposition => "attachment; filename=orders.csv"
+                :disposition => "attachment; filename=orders-#{@board.board_date}.csv"
   end
   
   
