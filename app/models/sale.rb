@@ -30,8 +30,10 @@ class Sale < ActiveRecord::Base
     end
     
     def reset_print_status
-      self.printed = false
-      self.save!
+      if self.printed == true
+        self.printed = false
+        self.save!
+      end
     end
 
     protected
