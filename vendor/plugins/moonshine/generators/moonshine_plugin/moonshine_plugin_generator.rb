@@ -19,13 +19,14 @@ class MoonshinePluginGenerator < Rails::Generator::Base
   def manifest
     record do |m|
       m.directory "vendor/plugins/#{plugin_name}"
-      m.template  "README.rdoc", "vendor/plugins/#{plugin_name}/README.rdoc"
+      m.template  "LICENSE", "vendor/plugins/#{plugin_name}/LICENSE"
+      m.template  "README.markdown", "vendor/plugins/#{plugin_name}/README.markdown"
       m.directory "vendor/plugins/#{plugin_name}/moonshine"
       m.template  'init.rb', "vendor/plugins/#{plugin_name}/moonshine/init.rb"
-      m.directory "vendor/plugins/#{plugin_name}/lib"
-      m.template  'plugin.rb', "vendor/plugins/#{plugin_name}/lib/#{name}.rb"
-      m.directory "vendor/plugins/#{plugin_name}/spec"
-      m.template  'spec.rb', "vendor/plugins/#{plugin_name}/spec/#{name}_spec.rb"
+      m.directory "vendor/plugins/#{plugin_name}/lib/moonshine"
+      m.template  'plugin.rb', "vendor/plugins/#{plugin_name}/lib/moonshine/#{name}.rb"
+      m.directory "vendor/plugins/#{plugin_name}/spec/moonshine"
+      m.template  'spec.rb', "vendor/plugins/#{plugin_name}/spec/moonshine/#{name}_spec.rb"
       m.template  'spec_helper.rb', "vendor/plugins/#{plugin_name}/spec/spec_helper.rb"
     end
   end
