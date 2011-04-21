@@ -68,10 +68,15 @@
 				<%= link_to image_tag("accept.png"), sale_path(sale, :format=>"pdf")%>
 			</td>
 		<% else %>
-			<td>
-				<%= link_to image_tag("error.png"), sale_path(sale, :format=>"pdf")%>
-			</td>
-		
+			<% if sale.reprint? %>
+				<td>
+					<%= link_to "Reprint Me!", sale_path(sale, :format=>"pdf")%>
+				</td>
+			<% else %>
+				<td>
+					<%= link_to image_tag("error.png"), sale_path(sale, :format=>"pdf")%>
+				</td>
+			<% end %>
 		<% end %>
   </tr>
 	<% end%>
