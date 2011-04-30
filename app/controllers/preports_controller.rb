@@ -22,14 +22,8 @@ class PreportsController < ApplicationController
       @preport = Preport.find(params[:id])
     end
     
-    
     @pnotes = @preport.pnotes
     @pnote=Pnote.new
-    
-    
-  
-    
-    
     
     respond_to do |format|
       format.html # show.html.erb

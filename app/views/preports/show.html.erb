@@ -40,7 +40,8 @@
 	
 	<tbody>
 		<% for prediction in @preport.predictions %>
-			<tr>
+			<% role = Role.find(11)%>
+			<tr class="<%= prediction.user.roles.include?(role) ? 'jrsalesrep' : 'salesrep' %>">
 				<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
 				
 				
@@ -61,6 +62,50 @@
 				
 				<td><%= prediction.bhigh ? (number_to_currency prediction.bhigh) : "-"; %></td>
 				<td><%= prediction.blow ? (number_to_currency prediction.blow) : "-"; %></td>
+			</tr>
+		<% end %>
+		
+			
+	</tbody>
+	
+</table>
+
+
+
+<table class="stylized">
+	<thead>
+		<th class="prediction_header" >Salesperson</th>
+		<th class="prediction_header" colspan="2">Sword</th>
+		<th class="prediction_header"  colspan="2">Mahi</th>
+		<th class="prediction_header"  colspan="2">Wahoo</th>
+		
+	</thead>
+	<thead class="hilo_row">
+		<th class="prediction_low"></th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		
+		
+	</thead>
+	
+	<tbody>
+		<% for prediction in @preport.predictions %>
+			<tr class="<%= prediction.user.roles.include?(role) ? 'jrsalesrep' : 'salesrep' %>">
+				<td><%= prediction.user==current_user ? link_to(prediction.user.login.humanize, edit_prediction_path(prediction)) : prediction.user.login.humanize ;%></td>
+				
+				
+				<td><%= prediction.swordhi ? (number_to_currency prediction.swordhi) : "-"; %></td>
+				<td><%= prediction.swodlow ? (number_to_currency prediction.swodlow) : "-"; %></td>
+				
+				<td><%= prediction.mahihi ? (number_to_currency prediction.mahihi) : "-"; %></td>
+				<td><%= prediction.mahilow ? (number_to_currency prediction.mahilow) : "-"; %></td>
+				
+				<td><%= prediction.wahoohi ? (number_to_currency prediction.wahoohi) : "-"; %></td>
+				<td><%= prediction.wahoolow ? (number_to_currency prediction.wahoolow) : "-"; %></td>
 			</tr>
 		<% end %>
 		
@@ -120,6 +165,37 @@
 	</tr>
 </table>
 
+<table class="stylized">
+	<thead>
+		<th class="prediction_header" >Averages</th>
+		<th class="prediction_header" colspan="2">Sword</th>
+		<th class="prediction_header"  colspan="2">Mahi</th>
+		<th class="prediction_header"  colspan="2">Wahoo</th>
+
+	</thead>
+	<thead class="hilo_row">
+		<th></th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+		<th class="prediction_high">High</th>
+		<th class="prediction_low">Low</th>
+
+
+	</thead>
+
+	<tr class="footer">
+		<td></td>
+		<td><%= (number_to_currency @preport.predictions.average(:swordhi) )%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:swodlow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:mahihi) )%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:mahilow))%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:wahoohi) )%></td>
+		<td><%= (number_to_currency @preport.predictions.average(:wahoolow))%></td>
+	</tr>
+</table>
+
 
 <%= link_to "Print Prediction Report (PDF)", preport_path(@preport , :format=>"pdf"), :class=>"btn btn-blue" %>
 
@@ -132,9 +208,6 @@
 <fieldset>
 <legend>Market Notes</legend>
 </fieldset>
-
-<h1>
-
 		<% @pnotes.group_by(&:user).each do |user, pnotes| %>
 			<h1><%= user.full_name%></h1>
 			
@@ -143,18 +216,15 @@
 					<th>Comments</th>
 				</thead>
 				<tbody>
-		 	<% for pnote in pnotes %>
-		
-			
-			<tr>
-				<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
-				
-			</tr>
-			<% end %>
-
+			 	<% for pnote in pnotes %>
+					<tr>
+						<td><%= pnote.user==current_user ? link_to(pnote.content, edit_pnote_path(pnote)) : pnote.content ;%></td>
+					</tr>
+				<% end %>
+				</tbody>
+			</table>
 		<% end %>
-	</tbody>
-</table>
+
 
 
 <br />

@@ -344,6 +344,12 @@
 	table.stylized tbody tr:nth-child(odd) th,table.stylized tbody tr:nth-child(odd) td {
 		background:#FAFDFE;
 	}
+	table.stylized tr.jrsalesrep:nth-child(even) td {
+		background: #E2FFD8;
+	}
+	table.stylized tbody tr.jrsalesrep:nth-child(odd) th,table.stylized tbody tr.jrsalesrep:nth-child(odd) td {
+		background: #F9FFCF;
+	}	
 	table.stylized caption {
 		margin-bottom:1em;
 		text-align:center;

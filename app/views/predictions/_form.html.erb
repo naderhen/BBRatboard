@@ -55,6 +55,36 @@
 			</tr>
 		</tbody>
 	</table>
+	
+	<table class="stylized">
+		<thead>
+			<th class="prediction_header" colspan="2">Sword</th>
+			<th class="prediction_header"  colspan="2">Mahi</th>
+			<th class="prediction_header"  colspan="2">Wahoo</th>
+
+		</thead>
+		<thead class="hilo_row">
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+			<th class="prediction_high">High</th>
+			<th class="prediction_low">Low</th>
+
+
+		</thead>
+
+		<tbody>
+			<tr>
+				<td><%= f.text_field :swordhi, :class=>"small" %></td>
+				<td> <%= f.text_field :swodlow, :class=>"small" %></td>
+				<td><%= f.text_field :mahihi, :class=>"small" %></td>
+				<td><%= f.text_field :mahilow, :class=>"small" %></td>
+				<td><%= f.text_field :wahoohi, :class=>"small" %></td>
+				<td><%= f.text_field :wahoolow, :class=>"small" %></td>
+			</tr>
+		</tbody>
+	</table>
 
 
   <div class="actions">

@@ -12,5 +12,10 @@ class Preport < ActiveRecord::Base
       prediction=Prediction.new(:user_id=>salesrep.id, :preport_id=>self.id)
       prediction.save!
     end
+    @jrsalesreps = Role.find(11).users
+    @jrsalesreps.each do |jrsalesrep|
+      prediction=Prediction.new(:user_id=>jrsalesrep.id, :preport_id=>self.id)
+      prediction.save!
+    end
   end
 end

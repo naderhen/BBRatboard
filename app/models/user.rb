@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   end
   
   def staff?
-      self.roles.exists?(1) || self.roles.exists?(2) || self.roles.exists?(3)
+      self.roles.exists?(1) || self.roles.exists?(2) || self.roles.exists?(3) || self.roles.exists?(11)
   end
   
   def shipper?
