@@ -9,6 +9,10 @@
 		<% end %>
 		
 		
+		<% if sale.reprint == true %>
+			<h2 class="wk_reprint"> **RE-PRINT!** </h2>
+		<% end %>
+
 		<h2 class="wk_id"><%= sale.id if sale.id %></h2>
 		<h2 class="wk_user"><%= sale.user.full_name if sale.user.full_name %></h2>
 
