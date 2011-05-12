@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110512002040) do
+ActiveRecord::Schema.define(:version => 20110512002835) do
 
   create_table "announcements", :force => true do |t|
     t.string   "title"
@@ -236,7 +236,7 @@ ActiveRecord::Schema.define(:version => 20110512002040) do
     t.date     "receive_date"
     t.boolean  "oversale"
     t.boolean  "reprint",             :default => false
-    t.boolean  "reprint_but_printed"
+    t.boolean  "reprint_but_printed", :default => false
   end
 
   create_table "slugs", :force => true do |t|
