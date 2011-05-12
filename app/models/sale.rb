@@ -6,7 +6,7 @@ class Sale < ActiveRecord::Base
     belongs_to :board
     
     after_create :push_create
-    after_update :reset_print_status
+    # after_update :reset_print_status
     before_save :bad_sale
     validates_presence_of :ratgrade, :on => :create, :message => "can't be blank"
     validates_presence_of :amount, :on => :create, :message => "can't be blank"
@@ -29,13 +29,13 @@ class Sale < ActiveRecord::Base
       end
     end
     
-    def reset_print_status
-      if self.printed == true
-        self.printed = false
-        self.reprint = true
-        self.save!
-      end
-    end
+    # def reset_print_status
+    #   if self.printed == true
+    #     self.printed = false
+    #     self.reprint = true
+    #     self.save!
+    #   end
+    # end
 
     protected
 
