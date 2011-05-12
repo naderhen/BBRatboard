@@ -107,7 +107,9 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales=@board.sales.find(:all, :include=>:customer, :order=>'customers.name asc')
     @sales.each do |sale|
-      
+      if sale.reprint = true
+        sale.reprint = false
+      end     
       sale.printed="true"
       sale.save!
     end
@@ -123,7 +125,9 @@ class BoardsController < ApplicationController
     
     @sales=@board.sales.find(:all, :conditions=>{"user_id" => params[:user_id]})
     @sales.each do |sale|
-      
+      if sale.reprint = true
+        sale.reprint = false
+      end
       sale.printed="true"
       sale.save!
     end
@@ -137,6 +141,9 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales=@board.sales.unprinted.find(:all, :include=>:customer, :order=>'customers.name asc')
     @sales.each do |sale|
+      if sale.reprint = true
+        sale.reprint = false
+      end
       sale.printed="true"
       sale.save!
     end
