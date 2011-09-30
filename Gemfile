@@ -1,19 +1,19 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.0.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem "mysql2", "~> 0.2.7"
+gem 'mysql2'
 gem 'rails3-jquery-autocomplete', '>= 0.2.2'
 gem "friendly_id"
 gem "authlogic"
 gem "pdfkit"
 gem 'fastercsv'
-gem 'will_paginate', '~> 3.0'
+gem 'will_paginate', '3.0.pre2'
 gem 'paperclip'
-gem "typus", :git => "git://github.com/typus/typus.git", :branch => "3-0-stable"
+gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
 gem 'pusher'
 gem 'event-calendar', :require => 'event_calendar'
 # Use unicorn as the web server
