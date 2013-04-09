@@ -319,7 +319,7 @@ module Moonshine
           desc 'Restart the Passenger processes on the app server by touching tmp/restart.txt.'
           task :restart, :roles => :app, :except => { :no_release => true } do
             unless fetch(:noop)
-              run "touch #{current_path}/tmp/restart.txt"
+              #run "touch #{current_path}/tmp/restart.txt"
             end
           end
 
