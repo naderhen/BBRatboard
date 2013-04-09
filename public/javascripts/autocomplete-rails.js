@@ -19,6 +19,11 @@ $(document).ready(function(){
     $(this).autocomplete({
       source: $(this).attr('autocomplete'),
       select: function(event, ui) {
+        if(bad_ids.length) {
+            if(bad_ids.indexOf(ui.item.id) > -1) {
+                alert('Alert! This Account is On Credit Hold!');
+            }
+        }
         if($(this).attr('id_element')) {
           $($(this).attr('id_element')).val(ui.item.id);
         }

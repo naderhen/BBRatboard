@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
   # GET /boards
   # GET /boards.xml
   def index
-    @boards = Board.all
+    @boards = Board.order("board_date DESC")
 
     
     @salesreps = Role.find(2).users

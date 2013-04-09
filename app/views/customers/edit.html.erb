@@ -20,6 +20,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+
+  <p>
+    <%= f.label :client_type %>
+    <%= f.select :client_type, ["Customer", "Credit Hold", "Inactive", "Do Not Sell"] %>
+  </p>
   <p>
     <%= f.submit 'Update' %>
   </p>

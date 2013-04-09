@@ -1,3 +1,11 @@
+<%
+  @bad_ids = Customer.where('client_type="Credit Hold"').map(&:id)
+%>
+
+<%= javascript_tag do %>
+  bad_ids = <%= @bad_ids.to_json %>;
+<% end %>
+
 <div id="newsale_placeholder">
 	
 	<p>You must select a grade on the left for the sales form to appear!</p>

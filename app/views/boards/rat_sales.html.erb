@@ -45,7 +45,7 @@
     	<td><%=h sale.amount if sale.amount %></td>
 	    <td><%=h sale.ratgrade.name if sale.ratgrade.name %></td>
 	    <td><%= sale.created_at.strftime('%I:%M %p') if sale.created_at %> </td>
-	    <td><%=h sale.customer.name if sale.customer.name %></td>
+	    <td class="customer <%= sale.customer.client_type.parameterize if sale.customer && sale.customer.client_type %>"><%=h sale.customer.name if sale.customer.name %></td>
 		
 		
 		<td><%= sale.invoice_date.strftime('%m/%d') if sale.invoice_date %> - <%= sale.receive_date.strftime('%m/%d') if sale.receive_date  %></td>
