@@ -109,6 +109,7 @@ DEPENDENCIES
   authlogic
   babosa (~> 0.3.11)
   event-calendar
+  fastercsv
   friendly_id (~> 3.3.0)
   mysql2 (< 0.3)
   net-ssh (~> 2.7.0)

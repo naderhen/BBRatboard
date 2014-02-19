@@ -11,6 +11,7 @@ gem "babosa", "~> 0.3.11"
 gem "friendly_id", "~> 3.3.0"
 gem "authlogic"
 gem "pdfkit"
+gem 'fastercsv'
 gem 'will_paginate', '3.0.pre2'
 gem "paperclip", "~> 2.0"
 gem "typus", "~> 3.0.3"
