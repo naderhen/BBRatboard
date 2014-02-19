@@ -12,7 +12,7 @@ gem "friendly_id", "~> 3.3.0"
 gem "authlogic"
 gem "pdfkit"
 gem 'will_paginate', '3.0.pre2'
-gem 'paperclip'
+gem "paperclip", "~> 2.0"
 gem "typus", "~> 3.0.3"
 gem 'pusher'
 gem 'event-calendar', :require => 'event_calendar'
