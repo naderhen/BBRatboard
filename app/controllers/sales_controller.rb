@@ -80,7 +80,7 @@ class SalesController < ApplicationController
 
     respond_to do |format|
       if @sale.update_attributes(params[:sale])
-        format.html { redirect_to (root_url, :notice => 'Sale was successfully updated.') }
+        format.html { redirect_to root_url, :notice => 'Sale was successfully updated.' }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
