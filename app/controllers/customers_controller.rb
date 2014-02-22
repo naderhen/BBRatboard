@@ -98,8 +98,8 @@ class CustomersController < ApplicationController
   
   
   def customer_import
-        file = params[:customer_import][:file]
-          FasterCSV.foreach(file) do |row|
+        file = params[:customer_import][:file].tempfile
+          CSV.foreach(file) do |row|
             if Customer.find_by_name(row[0])
               @customer=Customer.find_by_name(row[0])
               @customer.update_attributes(:address1=>row[1], :address2=>row[2], :city=>row[3], :state=>row[4], :zip=>row[5], :country=>row[6], :email=>row[7], :phone=>row[8], :fax=>row[9], :client_type=>row[10], :euler=>row[11], :contact=>row[12])   

@@ -1,5 +1,5 @@
 #require 'fastercsv'
-require 'fastercsv'
+require 'csv'
 class CsvController < ApplicationController
   before_filter :require_staff
   
@@ -8,8 +8,8 @@ class CsvController < ApplicationController
   
   
   def customer_import
-        file = params[:customer_import][:file]
-          FasterCSV.foreach(file) do |row|
+        file = params[:customer_import][:file].tempfile
+          CSV.foreach(file) do |row|
             if Customer.find_by_name(row[0])
               @customer=Customer.find_by_name(row[0])
               @customer.update_attributes(:address1=>row[1], :address2=>row[2], :city=>row[3], :state=>row[4], :zip=>row[5], :country=>row[6], :email=>row[7], :phone=>row[8], :fax=>row[9], :client_type=>row[10], :euler=>row[11], :contact=>row[12])   
@@ -31,10 +31,9 @@ class CsvController < ApplicationController
   end
 
   def upload
-    
     if params[:upload][:customer_existing]
     
-      FasterCSV.parse(params[:upload][:csv]) do |row|
+      CSV.parse(params[:upload][:csv].tempfile) do |row|
           if Customer.find_by_name(row[0])
             @customer=Customer.find_by_name(row[0])
             @customer.update_attributes(:address1=>row[1], :address2=>row[2], :city=>row[3], :state=>row[4], :zip=>row[5], :country=>row[6], :email=>row[7], :phone=>row[8], :fax=>row[9], :client_type=>row[10], :euler=>row[11], :contact=>row[12])   
@@ -51,7 +50,7 @@ class CsvController < ApplicationController
       
       table = ImportTable.new :original_path => params[:upload][:csv].original_path
       row_index = 0
-      FasterCSV.parse(params[:upload][:csv]) do |cells|
+      CSV.parse(params[:upload][:csv].tempfile) do |cells|
         column_index = 0
         cells.each do |cell|
           table.import_cells.build :column_index => column_index, :row_index => row_index, :contents => cell
