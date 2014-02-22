@@ -158,7 +158,7 @@ class BoardsController < ApplicationController
     @board = Board.find(params[:id])
     @sales=@board.sales.find(:all, :include=>:customer, :order=>'customers.name asc')
     
-    csv_string = CSV.generate do |csv|
+    csv_string = CSV.generate({}) do |csv|
       csv<<["Salesperson","Sale Amount","Grade","Customer","Invoice Date","FOB","Price", "Size Pref", "G/T/F", "Notes"]
       
       @sales.group_by(&:warehouse_id).sort.each do |warehouse_id,sales|
