@@ -17,6 +17,8 @@ gem "typus", "~> 3.0.3"
 gem 'pusher'
 gem 'event-calendar', :require => 'event_calendar'
 gem 'pry'
+gem 'wkhtmltopdf-binary'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
@@ -35,6 +37,5 @@ gem 'pry'
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
-# group :development, :test do
-#   gem 'webrat'
-# end
+group :development, :test do
+end

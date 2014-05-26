@@ -20,7 +20,7 @@ $(document).ready(function(){
       source: $(this).attr('autocomplete'),
       select: function(event, ui) {
         if(bad_ids.length) {
-            if(bad_ids.indexOf(ui.item.id) > -1) {
+            if(bad_ids.indexOf(parseInt(ui.item.id)) > -1) {
                 alert('Alert! This Account is On Credit Hold!');
             }
         }

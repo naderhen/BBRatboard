@@ -108,6 +108,7 @@ GEM
       will_paginate (~> 3.0.pre2)
     tzinfo (0.3.38)
     will_paginate (3.0.pre2)
+    wkhtmltopdf-binary (0.9.9.1)
 
 PLATFORMS
   ruby
@@ -127,3 +128,4 @@ DEPENDENCIES
   rails3-jquery-autocomplete (>= 0.2.2)
   typus (~> 3.0.3)
   will_paginate (= 3.0.pre2)
+  wkhtmltopdf-binary
